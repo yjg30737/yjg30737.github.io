@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "YJG30737's think tank"
+title:  "Welcome to Jekyll"
 date:   2021-11-19 20:46:13 +0900
 categories: jekyll update
 ---
