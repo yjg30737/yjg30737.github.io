@@ -1,0 +1,7 @@
+---
+layout: post
+title:  "pymeg - Python mathematical expression generator"
+date:   2021-11-20 16:51:25 +0900
+categories: Repo
+---
+<a href="https://github.com/yjg30737/pymeg.git">Go to repo</a>
