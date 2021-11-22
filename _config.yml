@@ -31,7 +31,6 @@ github_username: yjg30737
 theme: minima
 plugins:
   - jekyll-feed
-languages: ["en", "ko"]
 
 # Exclude from processing.
 # The following items will not be processed, by default.
