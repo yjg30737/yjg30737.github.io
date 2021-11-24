@@ -4,3 +4,12 @@
 
 layout: home
 ---
+
+<div style="display: flex; align-items: center; flex-flow: column wrap; ">
+    <div>
+        <img src="KakaoTalk_20211124_183834352.jpg" style="width: 100px; height: 100px;  border-radius: 50%; ">
+    </div>
+    <div>
+        <p>Jung Gyu Yoon</p>
+    </div>
+</div>
