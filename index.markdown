@@ -10,6 +10,9 @@ layout: home
         <img src="KakaoTalk_20211124_183834352.jpg" style="width: 100px; height: 100px;  border-radius: 50%; ">
     </div>
     <div>
-        <p>Jung Gyu Yoon</p>
+        <p style="margin-bottom: 0px; font-size: 1.2rem;">Jung Gyu Yoon</p>
+    </div>
+    <div>
+        <p style="color: #888888; margin-bottom: 0px;">yjg30737</p>
     </div>
 </div>
