@@ -12,6 +12,7 @@ categories: github
     <b>저장소(Repository)</b>: 줄여서 Repo라고 합니다. 프로젝트(프로그램 작업해놓은 것들)를 저장하는 곳입니다.
     </p>
     <p><img src="{{site.url}}/images/repo.png"/></p>
+    {{site.url}}
     <p>위 사진에 있는 pyqt-font-dialog, pyqt-dark.. 등등이 저장소입니다</p>
     <p>
     <b>브랜치(Branch)</b>: 브랜치는 프로젝트 작업장 같은 겁니다. 하나의 저장소는 여러 브랜치를 가질 수 있습니다. 브랜치는 하나 이상 꼭 있어야 됩니다! 그래야 작업을 할 수 있으니까요.
