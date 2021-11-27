@@ -25,7 +25,7 @@ categories: github
 
 <div>
   <h1>3. 기본적인 명령어</h1>
-  <p>우선 원하는 폴더에 가셔서 깃 배쉬를 켭니다. 오른쪽 클릭하면 컨텍스트 메뉴에 Git Bash Here이 있을텐데 그거 누르면 깃 배쉬가 나올 것입니다.</p>
+  <p>우선 원하는 폴더에 가셔서 깃 배쉬를 켭니다. 오른쪽 클릭하면 컨텍스트 메뉴에 Git Bash Here이 있을텐데 그거 누르면 깃 배쉬가 나올 것입니다. 아니면 cd 명령어(현재 참조하는 폴더 바꾸는 명령어. cd C:/.. 처럼 사용함)로 가셔도 되고요.</p>
   <p><b>git config --global user.name "이름"</b> // 님 이름 영어로 적으시면 됩니다.</p>
   <p><b>git config --global user.email "깃허브 이메일"</b> // 님이 깃허브에 가입했을 때 입력한 이메일을 여기서 입력하세요.</p>
   <p><small>※ 위 두 명령어는 깃헙배쉬 다운받고 나서 처음 사용할때만 쓰고 그 뒤엔 할 필요 없습니다. 대신에 처음엔 꼭 하셔야 합니다. 안그러면 님 이메일 뭔지 계속 물어봅니다.</small></p>
@@ -42,6 +42,8 @@ categories: github
   <p><b>git remote add origin https://github.com/username/reponame.git</b> // 뒤에 https...는 외부저장소 url입니다. 외부저장소와 로컬 저장소를 연결합니다. origin은 외부 저장소를 일컫는 말입니다.<br>
   (외부 저장소의 실제 이름이 아니라, git에서 관용적으로 사용하는 말입니다.)<br>
   <b>git pull origin master</b> // origin(외부저장소)에서 master(로컬 저장소의 브랜치)로 파일을 갖고 옵니다. 이 명령어를 입력하면, 실제로 그곳에 있는 파일들이 로컬 저장소 폴더에 추가됩니다.</p>
+
+  <p>이후에 pull할 땐 git remote~는 입력할 필요가 없습니다. 하지만 git pull origin master는 계속해서 입력해야되는데요. <br><b>git branch --set-upstream-to=origin/master master</b>를 입력하면 git pull만 입력해도 됩니다.<br>--set-upstream-to=origin..는 origin을 파일을 받아오는 upstream(상류)로 간주하겠다는 것입니다.</p>
 
   <p><b>touch abc.txt</b> // abc.txt라는 파일을 추가합니다. 리눅스 하시는 분들은 touch 명령어가 익숙하실겁니다. (근데 이런 명령어 아니라도 그냥 다른데서 파일 갖고와도 됩니다.)</p>
 
@@ -78,7 +80,10 @@ categories: github
   <p>위는 깃헙 사이트에서 볼 수 있는 저장소 파일 목록입니다. yjg30737(제 아이디) 옆에 있는 <cite>Replace example.png</cite>는 가장 최근 커밋메시지고 파일 목록이랑 2 days ago(2일전에 커밋) 사이에 있는 것들도 마찬가지로 커밋메시지입니다.</p>
 
   <p><b>git push</b> // 원격 저장소에도 저장(반영)</p>
-  <p>이것도 바로는 안될텐데 아까 pull 때처럼 git push origin master 하시면 됩니다.</p>
+  <p>이것도 바로는 안될텐데 아까 pull 때처럼 <b>git push origin master</b> 하시면 됩니다. --set-upstream하셨으면 이것도 git push만 해도 됩니다.</p>
+
+  <p><b>rm -rf .git</b> // 로컬 깃 저장소 삭제 명령어입니다. 물론 탐색기에서 직접 지우셔도 됩니다. 혹시나 깃헙 배쉬 연습하시다가 이상하게 되어버려서 다시 해야겠다고 생각하신다면? 삭제하시면 됩니다.</p>
+
 
 <div>
   <h1>5. 첫번째 포스트..</h1>
