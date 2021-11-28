@@ -41,9 +41,7 @@ print(num)
 
 소수점 아래 부분이 서로 결과가 다르네요. 정확하게 계산하는 것을 원한다면 첫 번째 방법으로, 소수점 신경 안쓰고 쉽게 계산하겠다! 싶으시면 두 번째 방법으로 하시면 될 것 같습니다.
 
-파이썬을 이용한 응용 프로그램 개발에서도 물론 활용 가능합니다. 얼마 전 제작했던 숫자 입력용 QLineEdit(PyQt5 위젯)인 <a href="https://github.com/yjg30737/number-lineedit.git">number-lineedit</a>에서 붙리언 값을 입력으로 받는 setComma라는 메서드로 쉼표를 토글할 수 있게 했습니다. 
-
-<small>하지만 아직은 보완할 점이 많습니다..ㅠ 언젠가 시간나면 실시간 쉼표 반영기능을 꼭..</small>
+파이썬을 이용한 응용 프로그램 개발에서도 물론 활용 가능합니다. 얼마 전 제작했던 숫자 입력용 QLineEdit(PyQt5 위젯)인 <a href="https://github.com/yjg30737/number-lineedit.git">number-lineedit</a>에서 붙리언 값을 입력으로 받는 setComma라는 메서드로 쉼표를 토글할 수 있게 했습니다.
 
 
 
