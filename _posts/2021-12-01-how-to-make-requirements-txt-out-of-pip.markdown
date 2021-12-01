@@ -3,7 +3,7 @@ layout: post
 title:  "pip로 requirements.txt를 앳, file... 없이 가지런하게 만드는 방법"
 date:   2021-12-01 00:00:00 +0900
 categories: pip
-author: Yoon Jung Gyu
+author: Jung Gyu Yoon
 ---
 
 pip로 requirements.txt 앳(@), file... 없이 가지런하게 만드는 방법입니다.
@@ -37,7 +37,5 @@ file... 같은 경우는 로컬이고 https... 같은 경우는 원격 저장소
 이렇게 하면 위와 같이 가지런히 나오게 됩니다.
 
 하지만 명심해야할 것. 릴리즈가 되지 않은 패키지(conda를 쓴다면 conda 저장소에 없거나, pip가 검색할 수 없는 패키지이거나)는 여전히 인스톨되지 않을 것입니다.
-
-
 
 
