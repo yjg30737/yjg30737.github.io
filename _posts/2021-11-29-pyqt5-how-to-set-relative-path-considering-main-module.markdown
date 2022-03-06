@@ -3,6 +3,7 @@ layout: post
 title:  "파이썬(Python)에서 메인 모듈 경로에 따른 상대경로 설정하는 방법"
 date:   2021-11-29 00:00:00 +0900
 categories: python
+author: Jung Gyu Yoon
 ---
 이럴 때가 있죠. 메인 모듈에서 특정 경로에 있는 외부 모듈을 부를 때, 그 외부 모듈에서 필요한 css 파일 따위를 못 찾아서 <b>FileNotFoundError</b>를 내뱉는 경우 말입니다.
 

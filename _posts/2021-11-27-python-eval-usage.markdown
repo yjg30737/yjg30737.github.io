@@ -3,6 +3,7 @@ layout: post
 title:  "파이썬(Python) eval 함수 설명, 사용방법"
 date:   2021-11-27 00:00:00 +0900
 categories: python
+author: Jung Gyu Yoon
 ---
 파이썬 eval 함수는 문자열 형식으로 된 코드(예: print('123'))를 입력으로 받아 동적으로 계산하여 출력해주는 함수입니다.
 

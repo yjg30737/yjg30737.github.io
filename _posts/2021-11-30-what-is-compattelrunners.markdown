@@ -3,6 +3,7 @@ layout: post
 title:  "CPU 잡아먹는 CompatTelRunner.exe이 하는 일과 비활성화하는 방법"
 date:   2021-11-30 00:00:00 +0900
 categories: windows
+author: Jung Gyu Yoon
 ---
 컴퓨터를 하다가 아무것도 안하고 있는데, 갑자기 CPU 돌아가는 소리가 크게 들립니다.
 
