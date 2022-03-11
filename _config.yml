@@ -29,6 +29,7 @@ github_username: yjg30737
 header_pages: 
   - posts.markdown
   - about.markdown
+  - settings.markdown
 
 # Build settings
 theme: minima
