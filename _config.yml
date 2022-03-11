@@ -19,13 +19,13 @@
 # in the templates via {{ site.myvariable }}.
 
 title: YJG's think tank
-author:
-  name: Yoon Jung Gyu
-  email: "yjg30737@gmail.com"
+email: yjg30737@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Make things easier, make life better
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://yjg30737.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: yjg30737
+github_username: yjg30737
 header_pages: 
   - posts.markdown
   - about.markdown
@@ -34,11 +34,6 @@ header_pages:
 theme: minima
 minima:
   skin: dark
-  date_format: "%Y-%m-%d %H:%M"
-  social-links:
-    github: yjg30737
-    linkedin: yjg30737
-    twitter: yjg30737
 plugins:
   - jekyll-feed
   - jekyll-sitemap
