@@ -2,7 +2,7 @@
 layout: post
 title:  "파이참(PyCharm) 프로젝트 파일 안보이는 문제, 설정 창 인터프리터 부분의 nothing to show 문제 해결하기"
 date:   2021-12-01 00:00:00 +0900
-categories: pycharm
+categories: posts/pycharm
 author: Jung Gyu Yoon
 ---
 파이참을 사용하다가 가끔씩 난관에 부딪칠 때가 많은데요.

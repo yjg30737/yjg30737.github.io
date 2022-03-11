@@ -2,7 +2,7 @@
 layout: post
 title:  "파이참(PyCharm)에서 디렉토리 이름변경 시 java.io.ioexception 오류 해결방법"
 date:   2021-11-30 00:00:00 +0900
-categories: python
+categories: posts/python
 author: Jung Gyu Yoon
 ---
 파이참에서 디렉토리 이름변경 기능을 사용할 시 java.io.ioexception이 뜰 때가 있죠.

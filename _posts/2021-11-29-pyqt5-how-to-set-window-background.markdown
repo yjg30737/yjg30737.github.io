@@ -2,7 +2,7 @@
 layout: post
 title:  "파이큐티(PyQt5)에서 윈도우 배경화면 설정하는 방법"
 date:   2021-11-29 00:00:00 +0900
-categories: pyqt5
+categories: posts/pyqt5
 author: Jung Gyu Yoon
 ---
 파이큐티(PyQt5)에서 윈도우 배경화면 설정하기.. 참 어렵습니다. 윈도우 배경화면 설정하듯이 할 수 없는 것이 현실이죠. 

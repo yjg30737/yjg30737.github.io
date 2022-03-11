@@ -2,7 +2,7 @@
 layout: post
 title:  "파이썬(Python)에서 숫자 사이에 콤마(1,234,567...) 넣기"
 date:   2021-11-27 00:00:00 +0900
-categories: python
+categories: posts/python
 author: Jung Gyu Yoon
 ---
 숫자를 사용자에게 보여주는 프로그램에서는 수치를 확연하게 보여주기 위해 중간중간에 쉼표를 붙이죠.

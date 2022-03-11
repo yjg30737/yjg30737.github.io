@@ -2,7 +2,7 @@
 layout: post
 title:  "깃배쉬에서 사용하는 기본적인 명령어(git init, git pull..) 설명"
 date:   2021-11-27 00:00:00 +0900
-categories: github
+categories: posts/github
 author: Jung Gyu Yoon
 ---
 
