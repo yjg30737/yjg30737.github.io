@@ -4,7 +4,7 @@
       "title"    : "파이참(PyCharm) 프로젝트 파일 안보이는 문제, 설정 창 인터프리터 부분의 nothing to show 문제 해결하기",
       "category" : "",
       "tags"     : "",
-      "url"      : "/posts/pycharm/2021/12/01/how-to-solve-the-nothing-to-show-problem-in-pycharm.html",
+      "url"      : "/posts/pycharm/how-to-solve-the-nothing-to-show-problem-in-pycharm/",
       "date"     : "2021-12-01 00:00:00 +0900"
     } ,
   
@@ -12,7 +12,7 @@
       "title"    : "pip로 requirements.txt를 앳, file... 없이 가지런하게 만드는 방법",
       "category" : "",
       "tags"     : "",
-      "url"      : "/posts/pip/2021/12/01/how-to-make-requirements-txt-out-of-pip.html",
+      "url"      : "/posts/pip/how-to-make-requirements-txt-out-of-pip/",
       "date"     : "2021-12-01 00:00:00 +0900"
     } ,
   
@@ -20,7 +20,7 @@
       "title"    : "CPU 잡아먹는 CompatTelRunner.exe이 하는 일과 비활성화하는 방법",
       "category" : "",
       "tags"     : "",
-      "url"      : "/posts/windows/2021/11/30/what-is-compattelrunners.html",
+      "url"      : "/posts/windows/what-is-compattelrunners/",
       "date"     : "2021-11-30 00:00:00 +0900"
     } ,
   
@@ -28,7 +28,7 @@
       "title"    : "jekyll에서 특수기호 raw string으로 인식시키는 방법",
       "category" : "",
       "tags"     : "",
-      "url"      : "/posts/github/2021/11/30/how-to-input-raw-string-into-jekyll-post.html",
+      "url"      : "/posts/github/how-to-input-raw-string-into-jekyll-post/",
       "date"     : "2021-11-30 00:00:00 +0900"
     } ,
   
@@ -36,7 +36,7 @@
       "title"    : "파이참(PyCharm)에서 디렉토리 이름변경 시 java.io.ioexception 오류 해결방법",
       "category" : "",
       "tags"     : "",
-      "url"      : "/posts/python/2021/11/30/how-to-fix-java-io-ioexception-in-pycharm.html",
+      "url"      : "/posts/python/how-to-fix-java-io-ioexception-in-pycharm/",
       "date"     : "2021-11-30 00:00:00 +0900"
     } ,
   
@@ -44,7 +44,7 @@
       "title"    : "파이큐티(PyQt5)에서 윈도우 배경화면 설정하는 방법",
       "category" : "",
       "tags"     : "",
-      "url"      : "/posts/pyqt5/2021/11/29/pyqt5-how-to-set-window-background.html",
+      "url"      : "/posts/pyqt5/pyqt5-how-to-set-window-background/",
       "date"     : "2021-11-29 00:00:00 +0900"
     } ,
   
@@ -52,7 +52,7 @@
       "title"    : "파이썬(Python)에서 메인 모듈 경로에 따른 상대경로 설정하는 방법",
       "category" : "",
       "tags"     : "",
-      "url"      : "/posts/python/2021/11/29/pyqt5-how-to-set-relative-path-considering-main-module.html",
+      "url"      : "/posts/python/pyqt5-how-to-set-relative-path-considering-main-module/",
       "date"     : "2021-11-29 00:00:00 +0900"
     } ,
   
@@ -60,7 +60,7 @@
       "title"    : "파이썬(Python) eval 함수 설명, 사용방법",
       "category" : "",
       "tags"     : "",
-      "url"      : "/posts/python/2021/11/27/python-eval-usage.html",
+      "url"      : "/posts/python/python-eval-usage/",
       "date"     : "2021-11-27 00:00:00 +0900"
     } ,
   
@@ -68,7 +68,7 @@
       "title"    : "파이썬(Python)에서 숫자 사이에 콤마(1,234,567...) 넣기",
       "category" : "",
       "tags"     : "",
-      "url"      : "/posts/python/2021/11/27/python-comma-between-number.html",
+      "url"      : "/posts/python/python-comma-between-number/",
       "date"     : "2021-11-27 00:00:00 +0900"
     } ,
   
@@ -76,7 +76,7 @@
       "title"    : "깃배쉬에서 사용하는 기본적인 명령어(git init, git pull..) 설명",
       "category" : "",
       "tags"     : "",
-      "url"      : "/posts/github/2021/11/27/basic-commands-of-github-bash.html",
+      "url"      : "/posts/github/basic-commands-of-github-bash/",
       "date"     : "2021-11-27 00:00:00 +0900"
     } 
   

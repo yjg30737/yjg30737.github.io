@@ -11,7 +11,7 @@ defaults:
 
 title: "YJG's Think Tank"
 
-# permalink: /:categories/:title/
+permalink: /:categories/:title/
     
 plugins:
   - jekyll-feed
