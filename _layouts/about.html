@@ -2,7 +2,7 @@
 layout: default
 ---
 <div class="card m-2" style="width:240px">
-    <img class="card-img-top" src="profile.jpg" alt="Card image">
+    <img class="card-img-top" src="{{ base.url | prepend: site.url }}/profile.jpg" alt="Card image">
     <div class="card-body">
         <h4 class="card-title">Jung Gyu Yoon</h4>
         <p class="card-text">PyQt, Python geek.</p>
