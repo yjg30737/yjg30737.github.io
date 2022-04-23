@@ -1,9 +1,0 @@
-I"�<p>깃헙 페이지 포스트 내용 중 코드를 쓸 시, 중괄호나 밑줄 두개 같이 jekyll에서 특수기호로 취급되는 낱말은 제대로 입력이 되지 않습니다. 그럴 때는 다음과 같이 하시면 됩니다!</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;% raw %&gt;
-(...)
-&lt;% endraw %&gt;
-</code></pre></div></div>
-
-<p>(…) 안에 코드를 넣으시면 됩니다.</p>
-
-:ET
