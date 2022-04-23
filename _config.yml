@@ -18,6 +18,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+
 gems: [jekyll-paginate-v2]
 pagination:
   enabled: true
