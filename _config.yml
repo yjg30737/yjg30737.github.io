@@ -12,7 +12,7 @@ defaults:
 title: "YJG's Think Tank"
 
 # permalink: /:categories/:title/
-
+    
 plugins:
   - jekyll-feed
   - jekyll-sitemap
