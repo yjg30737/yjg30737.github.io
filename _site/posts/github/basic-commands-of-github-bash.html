@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-color-scheme>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>깃배쉬에서 사용하는 기본적인 명령어(git init, git pull..) 설명 | YJG’s Think Tank</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="깃배쉬에서 사용하는 기본적인 명령어(git init, git pull..) 설명" />
+<meta name="author" content="Jung Gyu Yoon" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="깃배쉬 기본적인 명령어를 알려드리겠습니다. (사실상 첫 포스팅이네요.) 1. 우선 짚고 넘어가야할 용어 저장소(Repository): 줄여서 Repo라고 합니다. 프로젝트(프로그램 작업해놓은 것들)를 저장하는 곳입니다. 위 사진에 있는 pyqt-font-dialog, pyqt-dark.. 등등이 저장소입니다 브랜치(Branch): 브랜치는 프로젝트 작업장 같은 겁니다. 하나의 저장소는 여러 브랜치를 가질 수 있습니다. 브랜치는 하나 이상 꼭 있어야 됩니다! 그래야 작업을 할 수 있으니까요." />
+<meta property="og:description" content="깃배쉬 기본적인 명령어를 알려드리겠습니다. (사실상 첫 포스팅이네요.) 1. 우선 짚고 넘어가야할 용어 저장소(Repository): 줄여서 Repo라고 합니다. 프로젝트(프로그램 작업해놓은 것들)를 저장하는 곳입니다. 위 사진에 있는 pyqt-font-dialog, pyqt-dark.. 등등이 저장소입니다 브랜치(Branch): 브랜치는 프로젝트 작업장 같은 겁니다. 하나의 저장소는 여러 브랜치를 가질 수 있습니다. 브랜치는 하나 이상 꼭 있어야 됩니다! 그래야 작업을 할 수 있으니까요." />
+<link rel="canonical" href="http://localhost:4000/posts/github/basic-commands-of-github-bash" />
+<meta property="og:url" content="http://localhost:4000/posts/github/basic-commands-of-github-bash" />
+<meta property="og:site_name" content="YJG’s Think Tank" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-27T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="깃배쉬에서 사용하는 기본적인 명령어(git init, git pull..) 설명" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jung Gyu Yoon"},"dateModified":"2021-11-27T00:00:00+09:00","datePublished":"2021-11-27T00:00:00+09:00","description":"깃배쉬 기본적인 명령어를 알려드리겠습니다. (사실상 첫 포스팅이네요.) 1. 우선 짚고 넘어가야할 용어 저장소(Repository): 줄여서 Repo라고 합니다. 프로젝트(프로그램 작업해놓은 것들)를 저장하는 곳입니다. 위 사진에 있는 pyqt-font-dialog, pyqt-dark.. 등등이 저장소입니다 브랜치(Branch): 브랜치는 프로젝트 작업장 같은 겁니다. 하나의 저장소는 여러 브랜치를 가질 수 있습니다. 브랜치는 하나 이상 꼭 있어야 됩니다! 그래야 작업을 할 수 있으니까요.","headline":"깃배쉬에서 사용하는 기본적인 명령어(git init, git pull..) 설명","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/github/basic-commands-of-github-bash"},"url":"http://localhost:4000/posts/github/basic-commands-of-github-bash"}</script>
+<!-- End Jekyll SEO tag -->
+
+<!-- font -->
+<link rel="stylesheet" id="pageStyle">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- hightlightjs -->
+<link id="highlight" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/styles/dark.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<!-- site js -->
+<script src="http://localhost:4000/assets/js/main.js"></script>
+<!-- dark theme related tags -->
+<meta name="color-scheme" content="light dark">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-blackbox.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/js/darkmode.min.js"></script>
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="YJG&apos;s Think Tank" />
+<!-- style -->
+<link rel="stylesheet" href="/assets/css/theme.css">
+<!-- icon -->
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<!-- search feature -->
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+
+  </head>
+  <!-- Reduce FOUC(flash of unstyled content) effect --> 
+  <body style="opacity: 0;">
+    <header id="theme">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light p-2">
+        <a class="navbar-brand" href="/">
+            <img class="rounded-circle" src="http://localhost:4000/profile.jpg" alt="logo" style="width: 40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/posts.html">Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about.html">About</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input theme-toggler" id="darkToggle">
+                        <label class="custom-control-label" for="darkToggle">Dark mode</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <form class="form-inline m-2 w-95 center-block">
+        <input id="search-input" class="form-control w-100" type="text" placeholder="Search">
+    </form>
+    <ul class="list-unstyled mx-3" id="results-container">
+    </ul>
+</header>
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="container-fluid pt-4 px-4 border">
+    <!-- post header -->
+    <div>
+        <div class="float-end" id="breadcrumbs">
+  
+  <a href="/">Home</a>
+  
+    
+    / <a href="/posts/">Posts</a>
+    
+  
+    
+    / <a href="/posts/github/">Github</a>
+    
+  
+    
+    
+  
+</div>
+        <h1 class="pb-2">깃배쉬에서 사용하는 기본적인 명령어(git init, git pull..) 설명</h1>
+        <p>
+            <span class="badge rounded-pill bg-secondary me-1">
+                <img src="http://localhost:4000/profile.jpg" 
+                        class="rounded-circle img-thumbnail me-2" 
+                        alt="Profile Image" 
+                        style="width: 30px; height: 30px">Jung Gyu Yoon
+            </span><span class="badge text-secondary">Nov 27, 2021</span>
+        </p>
+    </div>
+    <!-- post content -->
+    <div>
+        <p>깃배쉬 기본적인 명령어를 알려드리겠습니다. (사실상 첫 포스팅이네요.)<br /></p>
+<div>
+  <h1>1. 우선 짚고 넘어가야할 용어</h1>
+    <p>
+    <b>저장소(Repository)</b>: 줄여서 Repo라고 합니다. 프로젝트(프로그램 작업해놓은 것들)를 저장하는 곳입니다.
+    </p>
+    <p><img src="http://localhost:4000/images/repo.png" /></p>
+    <p>위 사진에 있는 pyqt-font-dialog, pyqt-dark.. 등등이 저장소입니다</p>
+    <p>
+    <b>브랜치(Branch)</b>: 브랜치는 프로젝트 작업장 같은 겁니다. 하나의 저장소는 여러 브랜치를 가질 수 있습니다. 브랜치는 하나 이상 꼭 있어야 됩니다! 그래야 작업을 할 수 있으니까요.
+    </p>
+</div>
+
+<div>
+  <h1>2. 명령어 쓰는 곳</h1>
+  <b>GitHub Bash</b>입니다.<br /> 리눅스의 셸 중에 배쉬가 있고, 윈도우의 cmd(명령 프롬프트)도 셸의 일종이죠. 깃헙도 그 셸이 있는데 그게 바로 GitHub Bash입니다. 구글에서 검색하시면 곧바로 다운가능합니다.<br /><br />
+</div>
+
+<div>
+  <h1>3. 기본적인 명령어</h1>
+  <p>우선 원하는 폴더에 가셔서 깃 배쉬를 켭니다. 오른쪽 클릭하면 컨텍스트 메뉴에 Git Bash Here이 있을텐데 그거 누르면 깃 배쉬가 나올 것입니다. 아니면 cd 명령어(현재 참조하는 폴더 바꾸는 명령어. cd C:/.. 처럼 사용함)로 가셔도 되고요.</p>
+  <p><b>git config --global user.name "이름"</b> // 님 이름 영어로 적으시면 됩니다.</p>
+  <p><b>git config --global user.email "깃허브 이메일"</b> // 님이 깃허브에 가입했을 때 입력한 이메일을 여기서 입력하세요.</p>
+  <p><small>※ 위 두 명령어는 깃헙배쉬 다운받고 나서 처음 사용할때만 쓰고 그 뒤엔 할 필요 없습니다. 대신에 처음엔 꼭 하셔야 합니다. 안그러면 님 이메일 뭔지 계속 물어봅니다.</small></p>
+
+  <p><b>git init</b> // 깃 명령어 사용가능한 폴더로 만듭니다. 이 명령 입력하고 나면 .git이라는 숨겨진 폴더가 생깁니다. (숨김 파일/폴더 볼 수 있게 탐색기 설정하면 보입니다.)<br />
+  .git 폴더는 깃 저장소를 나타내는 표식이라고 보면 됩니다.</p>
+  <p><small>※ git init 명령만 입력하면 master 브랜치가 디폴트로 생깁니다. git init abs123을 입력하면 abc123이라는 폴더가 생기고 그 안에 저장소가 생깁니다.</small></p>
+
+  <p><b>git pull</b> // 원격 저장소의 파일들을 내 저장소에 가지고 옵니다.<br /> 원격저장소가 있다면 꼭 하셔야 됩니다.<br />
+  님이 혼자 쓰시는 거라고 하더라도, 작업할때는 git pull 먼저 부르는게 좋은 습관입니다.</p>
+
+  <p>그런데 처음부터 다짜고짜 git pull 입력하면 "There is no tracking information for the current branch... 이런 메시지를 뱉어내면서 파일 안 가져와줄거라고 말합니다. 그래서 먼저 어느 원격저장소에서 갖고와야 되는지를 정한 뒤에 이놈한테 좀 갖고 와달라고 말해야겠죠.<br />다음 두 명령어를 입력하면 됩니다.
+  
+  <p><b>git remote add origin https://github.com/username/reponame.git</b> // 뒤에 https...는 외부저장소 url입니다. 외부저장소와 로컬 저장소를 연결합니다. origin은 외부 저장소를 일컫는 말입니다.<br />
+  (외부 저장소의 실제 이름이 아니라, git에서 관용적으로 사용하는 말입니다.)<br />
+  <b>git pull origin master</b> // origin(외부저장소)에서 master(로컬 저장소의 브랜치)로 파일을 갖고 옵니다. 이 명령어를 입력하면, 실제로 그곳에 있는 파일들이 로컬 저장소 폴더에 추가됩니다.</p>
+
+  <p>이후에 pull할 땐 git remote~는 입력할 필요가 없습니다. 하지만 git pull origin master는 계속해서 입력해야되는데요. <br /><b>git branch --set-upstream-to=origin/master master</b>를 입력하면 git pull만 입력해도 됩니다.<br />--set-upstream-to=origin..는 origin을 파일을 받아오는 upstream(상류)로 간주하겠다는 것입니다.</p>
+
+  <p><b>touch abc.txt</b> // abc.txt라는 파일을 추가합니다. 리눅스 하시는 분들은 touch 명령어가 익숙하실겁니다. (근데 이런 명령어 아니라도 그냥 다른데서 파일 갖고와도 됩니다.)</p>
+
+  <p><b>git status</b> // 지금 저장소 상태를 보는 겁니다. 정확히는 브랜치를 보는거죠.
+  출력은 대략 다음과 같이 나옵니다. 해석해드리자면요.
+
+  
+<figure class="highlight"><pre><code class="language-git" data-lang="git">  On branch main // 지금 사용자가 사용하는 브랜치 이름: main
+  Your branch is up to date with 'origin/main'. // 
+  님 브랜치가 원격저장소(origin/main)랑 같은 최신버전이라는 뜻입니다. 
+  즉 파일 목록이 같다는 거죠.
+  여기서 origin은 원격저장소를 일컫는 이름이고 main은 그 브랜치 이름입니다.
+
+  Untracked files:
+    (use "git add &lt;file&gt;..." to include in what will be committed)
+          "_posts/2021..(생략)
+
+  nothing added to commit but untracked files present (use "git add" to track)
+
+  // Untracked files...는 아직 로컬 저장소가 인식을 못하는 파일이 있다는 겁니다. 
+  파일을 추가해줘도 저장소가 인식을 자동으로 안해주거든요. 
+  USB나 이어폰 노트북에 꽃을때 일일이 연결하겠냐고 물어보는 거랑 비슷한 거죠. 
+  우리가 "git add" 명령어로 인식시켜줘야 합니다. 
+  (use "git add" to track 메시지 보이시죠)
+  </code></pre></figure>
+
+
+  <p><b>git add .</b> // 로컬 저장소한테 제가 추가한 파일들 인식하라는 명령어입니다. add 다음의 .는 루트폴더(저장소 최상위폴더)를 말합니다.<br />
+  루트폴더부터 추가된 모든 파일들 인식하라는 거니 전부 다 인식하라는 것이죠.</p>
+
+  <p><b>git commit -m "First commit"</b> // 커밋하기(내 저장소에 변경여부 저장) -m "abc"는 커밋메시지를 "First commit"으로 하겠다는 겁니다. 커밋메시지는 위키의 수정코멘트랑 같은 건데 "내가 파일을 어떠어떠하게 변경했다"라고 사람들에게 알려주는 겁니다.</p>
+
+  <p><img src="http://localhost:4000/images/commit_message.png" /></p>
+  
+  <p>위는 깃헙 사이트에서 볼 수 있는 저장소 파일 목록입니다. yjg30737(제 아이디) 옆에 있는 <cite>Replace example.png</cite>는 가장 최근 커밋메시지고 파일 목록이랑 2 days ago(2일전에 커밋) 사이에 있는 것들도 마찬가지로 커밋메시지입니다.</p>
+
+  <p><b>git push</b> // 원격 저장소에도 저장(반영)</p>
+  <p>이것도 바로는 안될텐데 아까 pull 때처럼 <b>git push origin master</b> 하시면 됩니다. --set-upstream하셨으면 이것도 git push만 해도 됩니다.</p>
+
+  <p><b>rm -rf .git</b> // 로컬 깃 저장소 삭제 명령어입니다. 물론 탐색기에서 직접 지우셔도 됩니다. 혹시나 깃헙 배쉬 연습하시다가 이상하게 되어버려서 다시 해야겠다고 생각하신다면? 삭제하시면 됩니다.</p>
+
+
+<div>
+  <h1>5. 첫번째 포스트..</h1>
+  <p>힘드네요. 일단 그거 얘기하고 싶었고 또..<br />
+  제가 이미지도 곁들이는 등 많은 노력을 기울였지만 두서있게 설명을 잘 못한 것도 있고, html 등 웹사이트 코딩에 약한편이라 제대로 설명을 못한게 한이 맺힙니다.. 아니 뭐 그정도는 아닐지도..<br />
+  그래도 저도 배운게 어느 정도 있는 것 같고, 누군가한테 설명을 하는 능력(설명력)이 향상되었다는 느낌이 샘솟네요.<br /> 
+  여러분들이 읽을 필요 없는 글이지만, 그냥 제가 적고 싶어서 적어봤습니다ㅎ</p>
+</div></p></p></div>
+
+    </div>
+</div>
+    
+      </div>
+    </main>
+    <footer class="p-5 bg-light rounded">
+    <div class="footer-top">
+        <p>Contact<p>
+        <p class="small">yjg30737@gmail.com</p>
+        <a href="https://github.com/yjg30737" target="_blank" style="text-decoration: none;">
+            <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" class="bi bi-github" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/jung-gyu-yoon-295246193/" target="_blank" style="text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0000FF" class="bi bi-linkedin" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+            </svg>
+        </a>
+    </div>
+    <hr>
+    <div class="footer-bottom text-center">
+        Powered by Jekyll & Bootstrap
+    </div>
+</footer>
+  </body>
+</html>

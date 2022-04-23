@@ -1,0 +1,32 @@
+I"�<p>pip로 requirements.txt 앳(@), file… 없이 가지런하게 만드는 방법입니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip freeze &gt; requirements.txt
+</code></pre></div></div>
+<p>위는 매우 전형적인 방식입니다. 입력하면 아래와 같은 파일이 생깁니다.</p>
+
+<p><img src="http://localhost:4000/images/pip_freeze_1.png" alt="pip_freeze_1" /></p>
+
+<p>그런데 requirements.txt를 열어보시면 위와 같이 ~@~ 처럼 나오는 경우가 있습니다.
+보통 “패키지이름==버전이름” 처럼 나와야 하는데 말이죠 ㅜ</p>
+
+<p>보통 깃헙 저장소 소스에서 직접 다운받은 패키지를 저런 식으로 해석하더군요.</p>
+
+<p>file… 같은 경우는 로컬이고 https… 같은 경우는 원격 저장소에서 받은 것입니다.</p>
+
+<p>다시 다운로드할 때(특히 conda 쓰시는 분들)엔 상당히 애를 먹습니다!</p>
+
+<p>파이썬 IDE인 파이참 같은 경우 requirements.txt에 있는 패키지들을 자동으로 인스톨해주지만, ~@~ 형식의 패키지는 인스톨 시 실패합니다.</p>
+
+<p>그렇다면 어떻게 양식을 통일해야 하는가?</p>
+
+<p><code class="language-plaintext highlighter-rouge">pip list --format=freeze &gt; requirements.txt</code></p>
+
+<p>위와 같이 명령어를 작성하면 됩니다.</p>
+
+<p><img src="http://localhost:4000/images/pip_freeze_2.png" alt="pip_freeze_2" /></p>
+
+<p>이렇게 하면 위와 같이 가지런히 나오게 됩니다.</p>
+
+<p>하지만 명심해야할 것. 릴리즈가 되지 않은 패키지(conda를 쓴다면 conda 저장소에 없거나, pip가 검색할 수 없는 패키지이거나)는 여전히 인스톨되지 않을 것입니다.</p>
+
+:ET
