@@ -10,6 +10,8 @@ defaults:
       layout: "default"
 
 title: "YJG's Think Tank"
+
+permalink: /:categories/:title/
     
 plugins:
   - jekyll-feed
