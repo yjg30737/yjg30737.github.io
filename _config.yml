@@ -25,7 +25,9 @@ pagination:
 
   per_page: 10
 
-  indexpage: 'posts'
+  category: 'posts'
+
+  indexpage: 'index'
   
   trail: 
     before: 2
