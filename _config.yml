@@ -1,6 +1,6 @@
 title: "YJG's Think Tank"
 
-permalink: /:categories/:title
+permalink: /:categories/:title:output_ext
 
 plugins:
   - jekyll-feed
