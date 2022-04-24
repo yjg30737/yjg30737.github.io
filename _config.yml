@@ -21,11 +21,3 @@ gems:
 
 pagination:
   enabled: true
-  per_page: 10
-  permalink: '/page/:num/'
-  sort_field: 'date'
-  sort_reverse: true
-  
-  trail: 
-    before: 2
-    after: 2
