@@ -1,14 +1,3 @@
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "posts"
-  - scope:
-      path: ""
-    values:
-      layout: "default"
-
 title: "YJG's Think Tank"
 
 permalink: /:categories/:title/
