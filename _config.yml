@@ -21,7 +21,7 @@ plugins:
 pagination:
   enabled: true
   per_page: 10
-  permalink: '/page/:num/'
+  paginate_path: "/posts/page:num/"
 
   category: 'posts'
 
