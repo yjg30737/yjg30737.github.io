@@ -1,8 +1,35 @@
 ---
 layout: default
 ---
+<!-- pagination which is absolutely not working so far
+<div class="m-3">
+  <ul class="post-list">
+    {% for post in paginator.posts %}
+    <li>
+      <h2>
+          <a class="text-primary fw-bold" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+          </a>
+      </h2>
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      <span class="text-secondary">{{ post.date | date: date_format }}</span>
+      <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 156 }}</p>
+    </li>
+    <hr>
+    {% endfor %}
+  </ul>
 
-<!-- old page home
+  <ul class="pagination justify-content-center">
+    {% if paginator.page_trail %}
+      {% for trail in paginator.page_trail %}
+        <li {% if page.url == trail.path %}class="active{% endif %} page-item">
+            <a class="page-link" href="{{ trail.path | prepend: site.baseurl }}" title="{{trail.title}}">{{ trail.num }}</a>
+        </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+</div>
+-->
 <div class="m-3">
   {%- if site.posts.size > 0 -%}
   <ul class="post-list">
@@ -21,12 +48,4 @@ layout: default
       {%- endfor -%}
   </ul>
   {%- endif -%}
-  <ul class="pagination justify-content-center">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
 </div>
--->
