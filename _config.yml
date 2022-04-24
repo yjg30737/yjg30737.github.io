@@ -13,11 +13,7 @@ title: "YJG's Think Tank"
 
 permalink: /:categories/:title/
     
-gems:
+plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-paginate-v2
-
-pagination:
-  enabled: true
