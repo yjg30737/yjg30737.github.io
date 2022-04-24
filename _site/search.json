@@ -9,30 +9,6 @@
     } ,
   
     {
-      "title"    : "파이참(PyCharm) 프로젝트 파일 안보이는 문제, 설정 창 인터프리터 부분의 nothing to show 문제 해결하기",
-      "category" : "",
-      "tags"     : "",
-      "url"      : "/posts/pycharm/how-to-solve-the-nothing-to-show-problem-in-pycharm-%EB%B3%B5%EC%82%AC%EB%B3%B8/",
-      "date"     : "2021-12-01 00:00:00 +0900"
-    } ,
-  
-    {
-      "title"    : "파이참(PyCharm) 프로젝트 파일 안보이는 문제, 설정 창 인터프리터 부분의 nothing to show 문제 해결하기",
-      "category" : "",
-      "tags"     : "",
-      "url"      : "/posts/pycharm/how-to-solve-the-nothing-to-show-problem-in-pycharm-%EB%B3%B5%EC%82%AC%EB%B3%B8-(3)/",
-      "date"     : "2021-12-01 00:00:00 +0900"
-    } ,
-  
-    {
-      "title"    : "파이참(PyCharm) 프로젝트 파일 안보이는 문제, 설정 창 인터프리터 부분의 nothing to show 문제 해결하기",
-      "category" : "",
-      "tags"     : "",
-      "url"      : "/posts/pycharm/how-to-solve-the-nothing-to-show-problem-in-pycharm-%EB%B3%B5%EC%82%AC%EB%B3%B8-(2)/",
-      "date"     : "2021-12-01 00:00:00 +0900"
-    } ,
-  
-    {
       "title"    : "pip로 requirements.txt를 앳, file... 없이 가지런하게 만드는 방법",
       "category" : "",
       "tags"     : "",
