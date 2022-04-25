@@ -7,8 +7,8 @@
 	],
 	"sourcesContent": [
 		"@import \"theme\";",
-		"﻿* {\r\n    font-size: 1.1rem;\r\n}\r\n\r\n.dropdown-menu {\r\n    z-index: 999\r\n}\r\n\r\n/* post list */\r\n.post-list {\r\n    padding: 0;\r\n    list-style-type: none;\r\n}\r\n\r\n.post-list a {\r\n    text-decoration: none;\r\n    font-size: 1.6rem;\r\n}\r\n\r\n.post-list a:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n/* breadcrumbs */\r\n#breadcrumbs a {\r\n    text-decoration: none;\r\n}"
+		"﻿* {\r\n    font-size: 1.1rem;\r\n}\r\n\r\n.dropdown-menu {\r\n    z-index: 999\r\n}\r\n\r\n/* post list */\r\n.post-list {\r\n    padding: 0;\r\n    list-style-type: none;\r\n}\r\n\r\n.post-list a {\r\n    text-decoration: none;\r\n    font-size: 1.6rem;\r\n}\r\n\r\n.post-list a:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n/* breadcrumbs */\r\n#breadcrumbs a {\r\n    text-decoration: none;\r\n}\r\n\r\nimg {\r\n    max-width: 100%;\r\n}"
 	],
 	"names": [],
-	"mappings": "ACAA,AAAA,CAAC,CAAC,EACE,SAAS,EAAE,MAAM,GACpB;;AAED,AAAA,cAAc,CAAC,EACX,OAAO,EAAE,GACb,GAAC;;AAED,eAAe;AACf,AAAA,UAAU,CAAC,EACP,OAAO,EAAE,CAAC,EACV,eAAe,EAAE,IAAI,GACxB;;AAED,AAAA,UAAU,CAAC,CAAC,CAAC,EACT,eAAe,EAAE,IAAI,EACrB,SAAS,EAAE,MAAM,GACpB;;AAED,AAAA,UAAU,CAAC,CAAC,CAAC,KAAK,CAAC,EACf,eAAe,EAAE,SAAS,GAC7B;;AAED,iBAAiB;AACjB,AAAA,YAAY,CAAC,CAAC,CAAC,EACX,eAAe,EAAE,IAAI,GACxB"
+	"mappings": "ACAA,AAAA,CAAC,CAAC,EACE,SAAS,EAAE,MAAM,GACpB;;AAED,AAAA,cAAc,CAAC,EACX,OAAO,EAAE,GACb,GAAC;;AAED,eAAe;AACf,AAAA,UAAU,CAAC,EACP,OAAO,EAAE,CAAC,EACV,eAAe,EAAE,IAAI,GACxB;;AAED,AAAA,UAAU,CAAC,CAAC,CAAC,EACT,eAAe,EAAE,IAAI,EACrB,SAAS,EAAE,MAAM,GACpB;;AAED,AAAA,UAAU,CAAC,CAAC,CAAC,KAAK,CAAC,EACf,eAAe,EAAE,SAAS,GAC7B;;AAED,iBAAiB;AACjB,AAAA,YAAY,CAAC,CAAC,CAAC,EACX,eAAe,EAAE,IAAI,GACxB;;AAED,AAAA,GAAG,CAAC,EACA,SAAS,EAAE,IAAI,GAClB"
 }
