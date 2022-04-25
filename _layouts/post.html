@@ -7,12 +7,14 @@ layout: default
         {% include breadcrumbs.html %}
         <h1 class="pb-2">{{ page.title }}</h1>
         <p>
-            <span class="badge rounded-pill bg-secondary me-1">
-                <img src="{{ base.url | prepend: site.url }}/profile.jpg" 
-                        class="rounded-circle img-thumbnail me-2" 
-                        alt="Profile Image" 
-                        style="width: 30px; height: 30px">{{ page.author }}
-            </span>
+            <a href="{{site.url}}" style="text-decoration: none;">
+                <span class="badge rounded-pill bg-secondary me-1">
+                    <img src="{{ base.url | prepend: site.url }}/profile.jpg" 
+                            class="rounded-circle img-thumbnail me-2" 
+                            alt="Profile Image" 
+                            style="width: 30px; height: 30px">{{ page.author }}
+                </span>
+            </a>
             {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
             <span class="badge text-secondary">{{ page.date | date: date_format }}</span>
         </p>
