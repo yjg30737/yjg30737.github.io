@@ -7,12 +7,24 @@ $(document).ready(function() {
 });
 
 window.onload = function() {
+	/* Prefered */
 	
 	/* Toggle theme */
 	var toggler = document.querySelector('.theme-toggler'),
 	currentTheme = localStorage.getItem('theme');
-	if (currentTheme == 'light') toggler.removeAttribute('checked');
-	else toggler.checked = 'true';
+	if (currentTheme == '') {
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			currentTheme = 'dark';
+			toggler.checked = 'true';
+		} else {
+			currentTheme = 'light';
+			toggler.removeAttribute('checked');
+		}
+	}
+	else {
+		if (currentTheme == 'light') toggler.removeAttribute('checked');
+		else toggler.checked = 'true';
+	}
 
 	toggler.onclick = function(e) {
 		darkmode.toggleDarkMode();
