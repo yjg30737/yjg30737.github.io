@@ -18,6 +18,8 @@ window.onload = function() {
 		} else {
 			localStorage.setItem('theme', 'light');
 		}
+		const event = new Event('themeChanged');
+		document.dispatchEvent(event);
 	}
 	
 	/* Change active */

@@ -122,7 +122,6 @@
             </a><span class="badge text-secondary">Dec 1, 2021</span>
         </p>
     </div>
-    <!-- post content -->
     <div>
         <p>pip로 requirements.txt 앳(@), file… 없이 가지런하게 만드는 방법입니다.</p>
 
@@ -175,6 +174,12 @@
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
         })();
+
+        document.addEventListener('themeChanged', function (e) { 
+            if (document.readyState == 'complete') {
+                DISQUS.reset({ reload: true, config: disqus_config });
+            }
+        });
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>

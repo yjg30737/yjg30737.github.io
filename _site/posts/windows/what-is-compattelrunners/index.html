@@ -122,7 +122,6 @@
             </a><span class="badge text-secondary">Nov 30, 2021</span>
         </p>
     </div>
-    <!-- post content -->
     <div>
         <p>컴퓨터를 하다가 아무것도 안하고 있는데, 갑자기 CPU 돌아가는 소리가 크게 들립니다.</p>
 
@@ -177,6 +176,12 @@
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
         })();
+
+        document.addEventListener('themeChanged', function (e) { 
+            if (document.readyState == 'complete') {
+                DISQUS.reset({ reload: true, config: disqus_config });
+            }
+        });
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>

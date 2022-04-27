@@ -122,7 +122,6 @@
             </a><span class="badge text-secondary">Nov 27, 2021</span>
         </p>
     </div>
-    <!-- post content -->
     <div>
         <p>파이썬 eval 함수는 문자열 형식으로 된 코드(예: print(‘123’))를 입력으로 받아 동적으로 계산하여 출력해주는 함수입니다.</p>
 
@@ -200,6 +199,12 @@
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
         })();
+
+        document.addEventListener('themeChanged', function (e) { 
+            if (document.readyState == 'complete') {
+                DISQUS.reset({ reload: true, config: disqus_config });
+            }
+        });
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>

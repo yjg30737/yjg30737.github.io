@@ -122,7 +122,6 @@
             </a><span class="badge text-secondary">Nov 27, 2021</span>
         </p>
     </div>
-    <!-- post content -->
     <div>
         <p>숫자를 사용자에게 보여주는 프로그램에서는 수치를 확연하게 보여주기 위해 중간중간에 쉼표를 붙이죠.</p>
 
@@ -179,6 +178,12 @@
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
         })();
+
+        document.addEventListener('themeChanged', function (e) { 
+            if (document.readyState == 'complete') {
+                DISQUS.reset({ reload: true, config: disqus_config });
+            }
+        });
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
