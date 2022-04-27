@@ -4,11 +4,10 @@ $(document).ready(function() {
 });
 
 window.onload = function() {
-	/* Prefered */
-	
-	/* Toggle theme */
+	/* Init theme */
 	var toggler = document.querySelector('.theme-toggler'),
 	currentTheme = localStorage.getItem('theme');
+	/* If user doesn't have any cookies, set prefers color scheme by default */
 	if (currentTheme == '') {
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			currentTheme = 'dark';
@@ -18,11 +17,13 @@ window.onload = function() {
 			toggler.removeAttribute('checked');
 		}
 	}
+	/* User do have cookie */
 	else {
 		if (currentTheme == 'light') toggler.removeAttribute('checked');
 		else toggler.checked = 'true';
 	}
 
+	/* Toggle theme by checkbox */
 	toggler.onclick = function(e) {
 		darkmode.toggleDarkMode();
 		if (this.checked) {
