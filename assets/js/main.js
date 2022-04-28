@@ -42,7 +42,6 @@ window.onload = function() {
 	$('.navbar-nav a').on('click', function () {
 		$(this).addClass('active').sibilings().removeClass('active');
 	});
-	
 	/* "Go to top" button init */
 	goTopButton = document.getElementById("go-to-top");
 	
