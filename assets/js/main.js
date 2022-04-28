@@ -43,7 +43,7 @@ window.onload = function() {
 		$(this).addClass('active').sibilings().removeClass('active');
 	});
 	
-	/* Search feature */
+	/* Old search feature 
 	var sjs = SimpleJekyllSearch({
 		searchInput: document.getElementById('search-input'),
 		resultsContainer: document.getElementById('results-container'),
@@ -51,7 +51,7 @@ window.onload = function() {
 		searchResultTemplate: '{% include search_result_template.html %}',
 		limit: 5
 	});
-
+	*/
 	/* "Go to top" button init */
 	goTopButton = document.getElementById("go-to-top");
 	

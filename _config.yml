@@ -17,3 +17,8 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+
+algolia:
+   application_id: CQTULIJON9
+   index_name: yjg30737githubpage_index
+   search_only_api_key: 02e41c5d34fc1ace286382b8a6bed586

@@ -28,9 +28,6 @@
             </ul>
         </div>
     </nav>
-    <form class="form-inline m-2 w-95 center-block">
-        <input id="search-input" class="form-control w-100" type="text" placeholder="Search">
-    </form>
-    <ul class="list-unstyled mx-3" id="results-container">
-    </ul>
+    {% include search_result_template.html %}
+    {% include algolia.html %}
 </header>
