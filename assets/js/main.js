@@ -43,16 +43,6 @@ window.onload = function() {
 		$(this).addClass('active').sibilings().removeClass('active');
 	});
 	
-	/* Old search feature 
-	var sjs = SimpleJekyllSearch({
-		searchInput: document.getElementById('search-input'),
-		resultsContainer: document.getElementById('results-container'),
-		json: '{{ site.url }}/search.json',
-		searchResultTemplate: '{% include search_result_template.html %}',
-		limit: 5
-	});
-	*/
-	/* "Go to top" button init */
 	goTopButton = document.getElementById("go-to-top");
 	
 }

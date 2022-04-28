@@ -1,4 +1,5 @@
-﻿* {
+﻿/* general */
+* {
     font-size: 1.1rem;
 }
 
@@ -30,6 +31,7 @@ img {
     max-width: 100%;
 }
 
+/* go to top button */
 #go-to-top {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
