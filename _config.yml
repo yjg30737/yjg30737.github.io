@@ -13,12 +13,11 @@ title: "YJG's Think Tank"
 
 permalink: /:categories/:title/
 
-gems:
-  - jekyll-paginate-v2
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-paginate-v2
 
 algolia:
    application_id: CQTULIJON9
