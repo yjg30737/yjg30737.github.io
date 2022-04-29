@@ -2,7 +2,7 @@
 layout: post
 title:  "pip로 requirements.txt를 앳, file... 없이 가지런하게 만드는 방법"
 date:   2021-12-01 00:00:00 +0900
-categories: posts/pip
+categories: posts
 author: Jung Gyu Yoon
 ---
 
