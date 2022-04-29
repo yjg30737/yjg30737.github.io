@@ -1,3 +1,8 @@
+/* for dark-modes-supported-color-schemes (to prevent disqus theme switching malfunction) */
+:root { color-scheme: light dark; }
+
+iframe { color-scheme: light; }
+
 /* general */
 * { font-size: 1.1rem; }
 
