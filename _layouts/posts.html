@@ -1,10 +1,10 @@
 ---
 layout: default
 ---
-<div class="m-3">
-  {%- if site.posts.size > 0 -%}
-  <ul class="post-list">
-      {%- for post in site.posts -%}
+{% if paginator %}
+  <div class="m-3">
+    <ul class="post-list">
+      {% for post in paginator.posts %}
       <li>
         <h2>
             <a class="text-primary fw-bold" href="{{ post.url | relative_url }}">
@@ -16,24 +16,54 @@ layout: default
         <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 156 }}</p>
       </li>
       <hr>
-      {%- endfor -%}
-  </ul>
-  {%- endif -%}
-  {%- if site.posts.size > 0 -%}
-    <ul class="pagination justify-content-center">
-      {%- if site.posts.size > 10 -%}
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1">Previous</a>
-        </li>
-      {%- endif -%}
-      {%- for post in site.posts -%}
-        <li class="page-item"><a class="page-link" href="{{ post.url }}">{{ forloop.index }}</a></li>
-      {%- endfor -%}
-      {%- if site.posts.size > 10 -%}
-        <li class="page-item">
-          <a class="page-link" href="{{ site.url }}">Next</a>
-        </li>
-      {%- endif -%}
+      {% endfor %}
     </ul>
-  {%- endif -%}
-</div>
+
+    <ul class="pagination justify-content-center">
+      {% if paginator.page_trail %}
+        {% for trail in paginator.page_trail %}
+          <li {% if page.url == trail.path %}class="active{% endif %} page-item">
+              <a class="page-link" href="{{ trail.path | prepend: site.baseurl }}" title="{{trail.title}}">{{ trail.num }}</a>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </div>
+{% else %}
+  <div class="m-3">
+    {%- if site.posts.size > 0 -%}
+    <ul class="post-list">
+        {%- for post in site.posts -%}
+        <li>
+          <h2>
+              <a class="text-primary fw-bold" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+              </a>
+          </h2>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="text-secondary">{{ post.date | date: date_format }}</span>
+          <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 156 }}</p>
+        </li>
+        <hr>
+        {%- endfor -%}
+    </ul>
+    {%- endif -%}
+    {%- if site.posts.size > 0 -%}
+      <ul class="pagination justify-content-center">
+        {%- if site.posts.size > 10 -%}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+        {%- endif -%}
+        {%- for post in site.posts -%}
+          <li class="page-item"><a class="page-link" href="{{ post.url }}">{{ forloop.index }}</a></li>
+        {%- endfor -%}
+        {%- if site.posts.size > 10 -%}
+          <li class="page-item">
+            <a class="page-link" href="{{ site.url }}">Next</a>
+          </li>
+        {%- endif -%}
+      </ul>
+    {%- endif -%}
+  </div>
+{% endif %}
