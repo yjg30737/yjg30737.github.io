@@ -19,6 +19,25 @@ layout: default
       {% endfor %}
     </ul>
 
+    <!-- Pagination links -->
+    <div class="pagination justify-content-center">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="previous">
+          Previous
+        </a>
+      {% else %}
+        <span class="previous pe-3">Previous</span>
+      {% endif %}
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+      {% else %}
+        <span class="next ps-3">Next</span>
+      {% endif %}
+    </div>
+    <div class="page_number">
+      Page: {{ paginator.page }} of {{ paginator.total_pages }}
+    </div>
+    <!-- jekyll pagination v2 
     <ul class="pagination justify-content-center">
       {% if paginator.page_trail %}
         {% for trail in paginator.page_trail %}
@@ -28,6 +47,7 @@ layout: default
         {% endfor %}
       {% endif %}
     </ul>
+    -->
   </div>
 {% else %}
   <div class="m-3">

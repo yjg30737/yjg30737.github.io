@@ -12,8 +12,12 @@ defaults:
 title: "YJG's Think Tank"
 
 permalink: /:categories/:title/
+paginate: 5 # amount of posts to show
+paginate_path: posts/page:num/
+
 
 plugins:
+  - jekyll-paginate
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
