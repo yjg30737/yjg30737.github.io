@@ -97,7 +97,7 @@ DEPENDENCIES
   jekyll
   jekyll-algolia
   jekyll-feed
-  jekyll-paginate-v2 (>= 3.0)
+  jekyll-paginate-v2 (~> 3.0)
   jekyll-seo-tag
   jekyll-sitemap
   wdm (>= 0.1.0)
