@@ -28,12 +28,12 @@ author: Jung Gyu Yoon
 regedit.exe(레지스트리 편집기)를 gpedit.msc 실행했던 방식으로 실행합니다.
 <b>컴퓨터\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection</b>에서 타입은 32비트 DWORD값이며 이름은 AllowTelemetry고 값은 0인 변수를 만듭니다.
 
-<p><img src="{{site.url}}/images/compat_regedit.png"/></p>
+<p><img src="{{site.url}}/assets/images/compat_regedit.png"/></p>
 빈 공간 오른쪽 클릭해서 새로 만들기 하셔서 타입과 값 설정하면 위 사진처럼 나옵니다.
 
 <h4>3. 서비스에서 Connected User Experiences and Telemetry 시작유형 사용안함 설정</h4>
 
-<p><img src="{{site.url}}/images/compat_service.png"/></p>
+<p><img src="{{site.url}}/assets/images/compat_service.png"/></p>
 <h4>4. 재부팅</h4>
 
 이렇게 하면 되는 걸로 알고 있습니다. 안되면.. ㅜ

@@ -12,7 +12,7 @@ author: Jung Gyu Yoon
     <p>
     <b>저장소(Repository)</b>: 줄여서 Repo라고 합니다. 프로젝트(프로그램 작업해놓은 것들)를 저장하는 곳입니다.
     </p>
-    <p><img src="{{site.url}}/images/repo.png"/></p>
+    <p><img src="{{site.url}}/assets/images/repo.png"/></p>
     <p>위 사진에 있는 pyqt-font-dialog, pyqt-dark.. 등등이 저장소입니다</p>
     <p>
     <b>브랜치(Branch)</b>: 브랜치는 프로젝트 작업장 같은 겁니다. 하나의 저장소는 여러 브랜치를 가질 수 있습니다. 브랜치는 하나 이상 꼭 있어야 됩니다! 그래야 작업을 할 수 있으니까요.
@@ -76,7 +76,7 @@ author: Jung Gyu Yoon
 
   <p><b>git commit -m "First commit"</b> // 커밋하기(내 저장소에 변경여부 저장) -m "abc"는 커밋메시지를 "First commit"으로 하겠다는 겁니다. 커밋메시지는 위키의 수정코멘트랑 같은 건데 "내가 파일을 어떠어떠하게 변경했다"라고 사람들에게 알려주는 겁니다.</p>
 
-  <p><img src="{{site.url}}/images/commit_message.png"></p>
+  <p><img src="{{site.url}}/assets/images/commit_message.png"></p>
   
   <p>위는 깃헙 사이트에서 볼 수 있는 저장소 파일 목록입니다. yjg30737(제 아이디) 옆에 있는 <cite>Replace example.png</cite>는 가장 최근 커밋메시지고 파일 목록이랑 2 days ago(2일전에 커밋) 사이에 있는 것들도 마찬가지로 커밋메시지입니다.</p>
 

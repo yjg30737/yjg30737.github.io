@@ -13,7 +13,7 @@ pip freeze > requirements.txt
 ```
 위는 매우 전형적인 방식입니다. 입력하면 아래와 같은 파일이 생깁니다.
 
-![pip_freeze_1]({{site.url}}/images/pip_freeze_1.png)
+![pip_freeze_1]({{site.url}}/assets/images/pip_freeze_1.png)
 
 그런데 requirements.txt를 열어보시면 위와 같이 ~@~ 처럼 나오는 경우가 있습니다.
 보통 "패키지이름==버전이름" 처럼 나와야 하는데 말이죠 ㅜ
@@ -32,7 +32,7 @@ file... 같은 경우는 로컬이고 https... 같은 경우는 원격 저장소
 
 위와 같이 명령어를 작성하면 됩니다.
 
-![pip_freeze_2]({{site.url}}/images/pip_freeze_2.png)
+![pip_freeze_2]({{site.url}}/assets/images/pip_freeze_2.png)
 
 이렇게 하면 위와 같이 가지런히 나오게 됩니다.
 

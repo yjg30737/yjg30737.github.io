@@ -9,13 +9,13 @@ author: Jung Gyu Yoon
 
 있어야 할 프로젝트 파일 몇몇이 안보이는 일도 다 생깁니다. 
 
-![pycharm_nothing_to_show_2]({{site.url}}/images/pycharm_nothing_to_show_2.png)
+![pycharm_nothing_to_show_2]({{site.url}}/assets/images/pycharm_nothing_to_show_2.png)
 
 위에서 내비게이션 뷰 모드를 Project에서 Project Files로 바꾸었을 때, Project Files에서 나오는 파일들이 Project에서도 나와야 되는데 안 나오죠!
 
 그래서 프로젝트 구조 다시 설정해볼려고 설정 -> 인터프리터 들어가보면 nothing to show라고만 나옵니다.
 
-![pycharm_nothing_to_show]({{site.url}}/images/pycharm_nothing_to_show.png)
+![pycharm_nothing_to_show]({{site.url}}/assets/images/pycharm_nothing_to_show.png)
 
 위 사진처럼, Project: ... 와 같이 나와야 되는데 말이죠.
 

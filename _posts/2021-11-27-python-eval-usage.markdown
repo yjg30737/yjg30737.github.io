@@ -45,11 +45,11 @@ python을 이용한 eval은 문자열을 수식으로 취급하여, 계산 이�
 
 예를 들어 사용자가 1+2+3을 입력합니다. 1+2+3은 문자열 형식으로 프로그램에게 주어집니다.
 
-![example1](/images/eval_example1.png)
+![example1](/assets/images/eval_example1.png)
 
 그럼 eval('1+2+3')하여 6을 반환하죠.
 
-![example](/images/eval_example2.png)
+![example](/assets/images/eval_example2.png)
 
 eval은 math와 같은 외장 함수도 마찬가지로 지원합니다.
 
