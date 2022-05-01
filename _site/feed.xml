@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-01T16:17:21+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법</title><link href="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/" rel="alternate" type="text/html" title="pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법" /><published>2021-12-01T00:00:00+09:00</published><updated>2021-12-01T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip</id><content type="html" xml:base="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/"><![CDATA[<p>pip로 requirements.txt 앳(@), file… 없이 가지런하게 만드는 방법입니다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-01T16:29:59+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법</title><link href="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/" rel="alternate" type="text/html" title="pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법" /><published>2021-12-01T00:00:00+09:00</published><updated>2021-12-01T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip</id><content type="html" xml:base="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/"><![CDATA[<p>pip로 requirements.txt 앳(@), file… 없이 가지런하게 만드는 방법입니다.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip freeze &gt; requirements.txt
 </code></pre></div></div>
@@ -151,7 +151,7 @@
 
 <p>딱히 뭐라고 포스팅을 끝내야할지 모르겠네요! 그럼!</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[이럴 때가 있죠. 메인 모듈에서 특정 경로에 있는 외부 모듈을 부를 때, 그 외부 모듈에서 필요한 css 파일 따위를 못 찾아서 FileNotFoundError를 내뱉는 경우 말입니다.]]></summary></entry><entry><title type="html">깃배쉬에서 사용하는 기본적인 명령어(git init, git pull..) 설명</title><link href="http://localhost:4000/posts/basic-commands-of-github-bash/" rel="alternate" type="text/html" title="깃배쉬에서 사용하는 기본적인 명령어(git init, git pull..) 설명" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>http://localhost:4000/posts/basic-commands-of-github-bash</id><content type="html" xml:base="http://localhost:4000/posts/basic-commands-of-github-bash/"><![CDATA[<p>깃배쉬 기본적인 명령어를 알려드리겠습니다. (사실상 첫 포스팅이네요.)<br /></p>
 <div>
-  <h1>1. 우선 짚고 넘어가야할 용어</h1>
+  <h2>1. 우선 짚고 넘어가야할 용어</h2>
     <p>
     <b>저장소(Repository)</b>: 줄여서 Repo라고 합니다. 프로젝트(프로그램 작업해놓은 것들)를 저장하는 곳입니다.
     </p>
@@ -163,12 +163,12 @@
 </div>
 
 <div>
-  <h1>2. 명령어 쓰는 곳</h1>
+  <h2>2. 명령어 쓰는 곳</h2>
   <b>GitHub Bash</b>입니다.<br /> 리눅스의 셸 중에 배쉬가 있고, 윈도우의 cmd(명령 프롬프트)도 셸의 일종이죠. 깃헙도 그 셸이 있는데 그게 바로 GitHub Bash입니다. 구글에서 검색하시면 곧바로 다운가능합니다.<br /><br />
 </div>
 
 <div>
-  <h1>3. 기본적인 명령어</h1>
+  <h2>3. 기본적인 명령어</h2>
   <p>우선 원하는 폴더에 가셔서 깃 배쉬를 켭니다. 오른쪽 클릭하면 컨텍스트 메뉴에 Git Bash Here이 있을텐데 그거 누르면 깃 배쉬가 나올 것입니다. 아니면 cd 명령어(현재 참조하는 폴더 바꾸는 명령어. cd C:/.. 처럼 사용함)로 가셔도 되고요.</p>
   <p><b>git config --global user.name "이름"</b> // 님 이름 영어로 적으시면 됩니다.</p>
   <p><b>git config --global user.email "깃허브 이메일"</b> // 님이 깃허브에 가입했을 때 입력한 이메일을 여기서 입력하세요.</p>
@@ -231,7 +231,7 @@
 
 
 <div>
-  <h1>5. 첫번째 포스트..</h1>
+  <h2>5. 첫번째 포스트..</h2>
   <p>힘드네요. 일단 그거 얘기하고 싶었고 또..<br />
   제가 이미지도 곁들이는 등 많은 노력을 기울였지만 두서있게 설명을 잘 못한 것도 있고, html 등 웹사이트 코딩에 약한편이라 제대로 설명을 못한게 한이 맺힙니다.. 아니 뭐 그정도는 아닐지도..<br />
   그래도 저도 배운게 어느 정도 있는 것 같고, 누군가한테 설명을 하는 능력(설명력)이 향상되었다는 느낌이 샘솟네요.<br /> 
