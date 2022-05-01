@@ -78,6 +78,7 @@ function topFunction() {
 	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+// AnchorJs (add anchor links to all posts)
 document.addEventListener('DOMContentLoaded', function(event) {
 	anchors.add();
 });
