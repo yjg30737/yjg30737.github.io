@@ -1,9 +1,28 @@
 ---
 layout: none
 ---
-/* Reduce FOUC(flash of unstyled content) effect */ 
 $(document).ready(function() {
+	/* Reduce FOUC(flash of unstyled content) effect */ 
 	$("body").css('opacity', 1);
+
+	/* Set active navigation class based on URL */
+	var current = location.pathname;
+    $('.navbar-nav .nav-item a').each(function(){
+		// For set active attribute to home "/" properly 
+		// (to not make other urls change which includes "/")
+        var $this = $(this);
+        if(current == '/' && $this.attr('href') == '/'){
+			$this.addClass('active').sibilings().removeClass('active');
+			return;
+		}
+		else{
+			// if the current path includes in nav url list 
+			// or sub link of one of those, make that nav url active
+			if($this.attr('href').indexOf(current.split('/')[1]) !== -1){
+				$this.addClass('active');
+			}
+		}
+    })
 });
 
 window.onload = function() {
@@ -37,11 +56,7 @@ window.onload = function() {
 		const event = new Event('themeChanged');
 		document.dispatchEvent(event);
 	}
-	
-	/* Change active */
-	$('.navbar-nav a').on('click', function () {
-		$(this).addClass('active').sibilings().removeClass('active');
-	});
+
 	/* "Go to top" button init */
 	goTopButton = document.getElementById("go-to-top");
 	
