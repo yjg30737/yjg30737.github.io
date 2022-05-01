@@ -22,7 +22,8 @@ $(document).ready(function() {
 				$this.addClass('active');
 			}
 		}
-    })
+    });
+	anchors.add();
 });
 
 window.onload = function() {
@@ -44,7 +45,6 @@ window.onload = function() {
 		if (currentTheme == 'light') toggler.removeAttribute('checked');
 		else toggler.checked = 'true';
 	}
-
 	/* Toggle theme by checkbox */
 	toggler.onclick = function(e) {
 		darkmode.toggleDarkMode();
@@ -61,6 +61,7 @@ window.onload = function() {
 	goTopButton = document.getElementById("go-to-top");
 	
 }
+
 /* "Go to top" button feature */
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -71,6 +72,7 @@ function scrollFunction() {
 		goTopButton.style.display = "none";
 	}
 }
+
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
 	document.body.scrollTop = 0; // For Safari
