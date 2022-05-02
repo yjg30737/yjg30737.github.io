@@ -8,6 +8,8 @@ iframe { color-scheme: light; }
 
 img { max-width: 100%; }
 
+.nav-link.active { text-shadow: 0 0 1px currentColor; }
+
 /* go to top button */
 #go-to-top { display: none; /* Hidden by default */ position: fixed; /* Fixed/sticky position */ bottom: 30px; /* Place the button at the bottom of the page */ right: 30px; /* Place the button 30px from the right */ z-index: 999; /* Make sure it does not overlap */ border: 0px solid black; background-color: #00AAFF; /* Set a background color */ cursor: pointer; /* Add a mouse pointer on hover */ width: 60px; height: 60px; border-radius: 50%; /* Rounded corners */ }
 

@@ -16,6 +16,10 @@ img {
     max-width: 100%;
 }
 
+.nav-link.active {
+    text-shadow: 0 0 1px currentColor;
+}
+
 /* go to top button */
 #go-to-top {
     display: none; /* Hidden by default */
