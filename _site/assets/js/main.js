@@ -1,8 +1,8 @@
 $(document).ready(function() {
-	/* Reduce FOUC(flash of unstyled content) effect */ 
+	// Reduce FOUC(flash of unstyled content) effect
 	$("body").css('opacity', 1);
 
-	/* Set active navigation class based on URL */
+	// Set active navigation class based on URL
 	var current = location.pathname;
     $('.navbar-nav .nav-item a').each(function(){
 		// For set active attribute to home "/" properly 
@@ -23,10 +23,10 @@ $(document).ready(function() {
 });
 
 window.onload = function() {
-	/* Init theme */
+	// Init theme
 	var toggler = document.querySelector('.theme-toggler'),
 	currentTheme = localStorage.getItem('theme');
-	/* If user doesn't have any cookies, set prefers color scheme by default */
+	// If user doesn't have any cookies, set prefers color scheme by default
 	if (currentTheme == '' || currentTheme == null) {
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			currentTheme = 'dark';
@@ -36,12 +36,12 @@ window.onload = function() {
 			toggler.removeAttribute('checked');
 		}
 	}
-	/* User do have cookie */
+	// User do have cookie
 	else {
 		if (currentTheme == 'light') toggler.removeAttribute('checked');
 		else toggler.checked = 'true';
 	}
-	/* Toggle theme by checkbox */
+	// Toggle theme by checkbox
 	toggler.onclick = function(e) {
 		darkmode.toggleDarkMode();
 		if (this.checked) {
@@ -53,12 +53,12 @@ window.onload = function() {
 		document.dispatchEvent(event);
 	}
 
-	/* "Go to top" button init */
+	// "Go to top" button init
 	goTopButton = document.getElementById("go-to-top");
 	
 }
 
-/* "Go to top" button feature */
+// "Go to top" button feature
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
