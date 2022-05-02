@@ -41,10 +41,11 @@
     const content = hit._highlightResult.html.value;
 
     return `
-      <div class="post-item">
-        <span class="post-meta">${date}</span>
-        <h2><a class="post-link" href="${url}">${title}</a></h2>
-        {{#breadcrumbs}}<a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>{{/breadcrumbs}}
+      <div class="post-item px-2 py-1 border-bottom">
+        <h2 class="d-inline"><a class="post-link text-decoration-none" href="${url}">${title}</a></h2>
+        <span class="fs-6 text-secondary">${date}</span>
+        {{#breadcrumbs}}<a href="${url}" 
+        class="post-breadcrumbs fs-6 text-secondary text-decoration-none d-block">${breadcrumbs}</a>{{/breadcrumbs}}
         <div class="post-snippet">${content}</div>
       </div>
     `;
@@ -82,23 +83,16 @@
       font-style: normal;
       font-weight: bold;
     }
-    .post-breadcrumbs {
-    color: #424242;
-    display: block;
-    }
-    .post-breadcrumb {
-    color: #424242;
-    }
     .post-breadcrumb .ais-Highlight {
-    font-weight: bold;
-    font-style: normal;
+      font-weight: bold;
+      font-style: normal;
     }
     .post-snippet .ais-Highlight {
-    color: #2a7ae2;
-    font-style: normal;
-    font-weight: bold;
+      color: #2a7ae2;
+      font-style: normal;
+      font-weight: bold;
     }
     .post-snippet img {
-    display: none;
+      display: none;
     }
 </style>
