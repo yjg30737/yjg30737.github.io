@@ -27,7 +27,7 @@ window.onload = function() {
 	var toggler = document.querySelector('.theme-toggler'),
 	currentTheme = localStorage.getItem('theme');
 	/* If user doesn't have any cookies, set prefers color scheme by default */
-	if (currentTheme == '') {
+	if (currentTheme == '' || currentTheme == null) {
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			currentTheme = 'dark';
 			toggler.checked = 'true';
@@ -75,6 +75,7 @@ function topFunction() {
 	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+// AnchorJs (add anchor links to all posts)
 document.addEventListener('DOMContentLoaded', function(event) {
 	anchors.add();
 });
