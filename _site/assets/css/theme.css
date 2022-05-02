@@ -6,9 +6,6 @@ iframe { color-scheme: light; }
 /* general */
 * { font-size: 1.1rem; }
 
-/* breadcrumbs */
-#breadcrumbs a { text-decoration: none; }
-
 img { max-width: 100%; }
 
 /* go to top button */
