@@ -3,11 +3,11 @@ layout: default
 ---
 {% if paginator %}
   <div class="m-3">
-    <ul class="post-list">
+    <ul class="list-unstyled">
       {% for post in paginator.posts %}
       <li>
         <h2>
-            <a class="text-primary fw-bold" href="{{ post.url | relative_url }}">
+            <a class="text-primary fw-bold fs-4 text-decoration-none" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
             </a>
         </h2>

@@ -6,13 +6,6 @@ iframe { color-scheme: light; }
 /* general */
 * { font-size: 1.1rem; }
 
-/* post list */
-.post-list { padding: 0; list-style-type: none; }
-
-.post-list a { text-decoration: none; font-size: 1.6rem; }
-
-.post-list a:hover { text-decoration: underline; }
-
 /* breadcrumbs */
 #breadcrumbs a { text-decoration: none; }
 
