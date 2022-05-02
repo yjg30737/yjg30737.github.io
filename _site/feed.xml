@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-02T13:44:54+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법</title><link href="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/" rel="alternate" type="text/html" title="pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법" /><published>2021-12-01T00:00:00+09:00</published><updated>2021-12-01T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip</id><content type="html" xml:base="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/"><![CDATA[<p>pip로 requirements.txt 앳(@), file… 없이 가지런하게 만드는 방법입니다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-02T13:46:09+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법</title><link href="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/" rel="alternate" type="text/html" title="pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법" /><published>2021-12-01T00:00:00+09:00</published><updated>2021-12-01T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip</id><content type="html" xml:base="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/"><![CDATA[<p>pip로 requirements.txt 앳(@), file… 없이 가지런하게 만드는 방법입니다.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip freeze &gt; requirements.txt
 </code></pre></div></div>
@@ -59,13 +59,13 @@
 
 <p>작업 관리자 열어보시면 그 이유가 다 나옵니다만, 윈도우를 os로 사용하시는 분들은 작업 관리자 목록을 CPU 자원 사용량 순으로 정렬할 때 CompatTelRunner.exe를 최상단에서 보신 경우가 꽤 있으실 겁니다.</p>
 
-<h1>1. CompatTelRunner.exe는 무엇인가?</h1>
+<h2>1. CompatTelRunner.exe는 무엇인가?</h2>
 
 <p>윈도우 환경 향상을 위해 마소로 데이터를 자꾸자꾸 보내는 프로그램이라고 합니다.</p>
 
 <p>보내는 양이 많다면 당연히 컴 자원을 많이 잡아먹겠죠? CPU가 팽팽 돌아갈 겁니다.</p>
 
-<h1>2. 비활성화 방법</h1>
+<h2>2. 비활성화 방법</h2>
 
 <p>저는 개인적으로 이런 걸 비활성화하는 것을 권장해드리지는 않습니다. 하지만 그렇게 하고 싶으신 분들을 위해 비활성화 방법을 알려드리자면요.</p>
 
