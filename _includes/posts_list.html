@@ -1,0 +1,15 @@
+<ul class="list-unstyled">
+    {% for post in paginator.posts %}
+        <li>
+            <h2>
+                <a class="text-primary fw-bold fs-4 text-decoration-none" href="{{ post.url | relative_url }}">
+                {{ post.title | escape }}
+                </a>
+            </h2>
+            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+            <span class="text-secondary">{{ post.date | date: date_format }}</span>
+            <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 156 }}</p>
+        </li>
+        <hr>
+    {% endfor %}
+</ul>

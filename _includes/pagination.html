@@ -1,0 +1,21 @@
+<div class="pagination justify-content-between">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">
+        <button class="btn btn-primary" type="button">Previous</button>
+      </a>
+    {% else %}
+      <span class="previous">
+        <button class="btn btn-secondary disabled" type="button">Previous</button>
+      </span>
+    {% endif %}
+    <p class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</p>
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">
+        <button class="btn btn-primary" type="button">Next</button>
+      </a>
+    {% else %}
+      <span class="next">
+        <button class="btn btn-secondary disabled" type="button">Next</button>
+      </span>
+    {% endif %}
+</div>
