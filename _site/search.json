@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "How to show basic window in PyQt5",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/posts/pyqt-basic-window/",
+      "date"     : "2022-06-10 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "파이참(PyCharm) 프로젝트 파일 안보이는 문제, 설정 창 인터프리터 부분의 nothing to show 문제 해결하기",
       "category" : "",
       "tags"     : "",
