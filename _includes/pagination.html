@@ -1,21 +1,32 @@
-<div class="pagination justify-content-between">
+<nav>
+  <ul class="pagination justify-content-center">
     {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" class="previous">
-        <button class="btn btn-primary" type="button">Previous</button>
-      </a>
+      <li class="page-item">
+        <a href="{{ paginator.previous_page_path }}" class="page-link btn-primary">Previous</a>
+      </li>
     {% else %}
-      <span class="previous">
-        <button class="btn btn-secondary disabled" type="button">Previous</button>
-      </span>
+      <li class="page-item disabled">
+        <a class="page-link">Previous</a>
+      </li>
     {% endif %}
-    <p class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</p>
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <li class="page-item active"><a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a></li>
+      {% elsif page == 1 %}
+        <li class="page-item"><a class="page-link" href="{{ '/posts' | relative_url }}">{{ page }}</a></li>
+      {% else %}
+        <li class="page-item"><a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a></li>
+      {% endif %}
+    {% endfor %}
     {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" class="next">
-        <button class="btn btn-primary" type="button">Next</button>
-      </a>
+      <li class="page-item">
+        <a href="{{ paginator.next_page_path }}" class="page-link">Next</a>
+      </li>
     {% else %}
-      <span class="next">
-        <button class="btn btn-secondary disabled" type="button">Next</button>
-      </span>
+      <li class="page-item disabled">
+        <a class="page-link">Next</a>
+      </li>
     {% endif %}
-</div>
+  </ul>
+</nav>
+<p class="page_number text-center">Page: {{ paginator.page }} of {{ paginator.total_pages }}</p>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-10T18:42:01+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">How to show basic window in PyQt5</title><link href="http://localhost:4000/posts/pyqt-basic-window/" rel="alternate" type="text/html" title="How to show basic window in PyQt5" /><published>2022-06-10T00:00:00+09:00</published><updated>2022-06-10T00:00:00+09:00</updated><id>http://localhost:4000/posts/pyqt-basic-window</id><content type="html" xml:base="http://localhost:4000/posts/pyqt-basic-window/"><![CDATA[<p>Finally, first English post.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-11T12:52:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">How to show basic window in PyQt5</title><link href="http://localhost:4000/posts/pyqt-basic-window/" rel="alternate" type="text/html" title="How to show basic window in PyQt5" /><published>2022-06-10T00:00:00+09:00</published><updated>2022-06-10T00:00:00+09:00</updated><id>http://localhost:4000/posts/pyqt-basic-window</id><content type="html" xml:base="http://localhost:4000/posts/pyqt-basic-window/"><![CDATA[<p>Finally, first English post.</p>
 
 <p>I will teach you how to show basic window in PyQt5.</p>
 
@@ -41,9 +41,52 @@
 
 <p><img src="/assets/images/pyqt_basic_window/2.png" alt="example" /></p>
 
+<p>So basic, only label? I don’t think this actually is capable of doing something.</p>
+
+<p>At least he needs some friend to hang around with.</p>
+
+<p>How about QTextEdit?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># know the drill, right?
+</span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span> <span class="n">QWidget</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__initUi</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__initUi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">lbl</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s">'Hello Text Editor!'</span><span class="p">)</span>
+        <span class="n">lbl</span><span class="p">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="p">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+        <span class="n">te</span> <span class="o">=</span> <span class="n">QTextEdit</span><span class="p">()</span> <span class="c1"># new friend here!
+</span>
+        <span class="n">lay</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span> <span class="c1"># layout (layout is needed for 2 or more widgets)
+</span>        <span class="n">lay</span><span class="p">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span>
+        <span class="n">lay</span><span class="p">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">te</span><span class="p">)</span>
+
+        <span class="n">mainWidget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span> <span class="c1"># we need widget to contain the layout
+</span>        <span class="n">mainWidget</span><span class="p">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">lay</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">mainWidget</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+    <span class="n">w</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">exec_</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/pyqt_basic_window/3.png" alt="example" /></p>
+
 <p>Basic. What do you expect to my first English post?</p>
 
-<p>This spent so much time than i expected. Just.. Wow.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[Finally, first English post.]]></summary></entry><entry><title type="html">pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법</title><link href="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/" rel="alternate" type="text/html" title="pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법" /><published>2021-12-01T00:00:00+09:00</published><updated>2021-12-01T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip</id><content type="html" xml:base="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/"><![CDATA[<p>pip로 requirements.txt 앳(@), file… 없이 가지런하게 만드는 방법입니다.</p>
+<p>This spent so much time than i expected. Just.. Wow.</p>
+
+<p>How can anybody take the time to write down the post far longer than this?</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[Finally, first English post.]]></summary></entry><entry><title type="html">pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법</title><link href="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/" rel="alternate" type="text/html" title="pip로 requirements.txt를 앳, file… 없이 가지런하게 만드는 방법" /><published>2021-12-01T00:00:00+09:00</published><updated>2021-12-01T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip</id><content type="html" xml:base="http://localhost:4000/posts/how-to-make-requirements-txt-out-of-pip/"><![CDATA[<p>pip로 requirements.txt 앳(@), file… 없이 가지런하게 만드는 방법입니다.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip freeze &gt; requirements.txt
 </code></pre></div></div>
