@@ -35,11 +35,19 @@ window.onload = function() {
 			currentTheme = 'light';
 			toggler.removeAttribute('checked');
 		}
+		// switch highlight theme
+		switchHighlightThemeFunction();
 	}
 	// User do have cookie
 	else {
-		if (currentTheme == 'light') toggler.removeAttribute('checked');
-		else toggler.checked = 'true';
+		if (currentTheme == 'light') {
+			toggler.removeAttribute('checked');
+		}
+		else {
+			toggler.checked = 'true';
+		}
+		// switch highlight theme
+		switchHighlightThemeFunction();
 	}
 	// Toggle theme by checkbox
 	toggler.onclick = function(e) {
@@ -49,8 +57,23 @@ window.onload = function() {
 		} else {
 			localStorage.setItem('theme', 'light');
 		}
+		// switch highlight theme
+		switchHighlightThemeFunction();
+		// to switch disqus theme
 		const event = new Event('themeChanged');
 		document.dispatchEvent(event);
+	}
+
+	// function to switch highlight theme
+	function switchHighlightThemeFunction(){
+		currentTheme = localStorage.getItem('theme');
+		if (currentTheme == 'light'){
+			document.getElementById('highlight_light').removeAttribute("disabled");
+			document.getElementById('highlight_dark').setAttribute("disabled", "disabled");
+		} else {
+			document.getElementById('highlight_dark').removeAttribute("disabled");
+			document.getElementById('highlight_light').setAttribute("disabled", "disabled");
+		}
 	}
 
 	// "Go to top" button init
