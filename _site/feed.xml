@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-11T12:52:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">How to show basic window in PyQt5</title><link href="http://localhost:4000/posts/pyqt-basic-window/" rel="alternate" type="text/html" title="How to show basic window in PyQt5" /><published>2022-06-10T00:00:00+09:00</published><updated>2022-06-10T00:00:00+09:00</updated><id>http://localhost:4000/posts/pyqt-basic-window</id><content type="html" xml:base="http://localhost:4000/posts/pyqt-basic-window/"><![CDATA[<p>Finally, first English post.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-14T11:05:32+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">How to show animated SVG icon in PyQt5</title><link href="http://localhost:4000/posts/pyqt-how-to-show-animated-svg/" rel="alternate" type="text/html" title="How to show animated SVG icon in PyQt5" /><published>2022-06-14T00:00:00+09:00</published><updated>2022-06-14T00:00:00+09:00</updated><id>http://localhost:4000/posts/pyqt-how-to-show-animated-svg</id><content type="html" xml:base="http://localhost:4000/posts/pyqt-how-to-show-animated-svg/"><![CDATA[<p>So, here we are. The second English post.</p>
+
+<p>How to show animated SVG icon? Quite simple.</p>
+
+<p>But before you start it, download the sample <a href="https://loading.io/asset/579298">SVG icon</a> first.</p>
+
+<p>Make directory name ico and move downloaded SVG icon to directory you made.</p>
+
+<p>Then make the Python script like below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PyQt5.QtSvg</span> <span class="kn">import</span> <span class="n">QSvgWidget</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+
+
+<span class="c1"># QSvgWidget is good to use when you want to make SVG-related widget.
+</span><span class="k">class</span> <span class="nc">AnimatedSvgExample</span><span class="p">(</span><span class="n">QSvgWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__initUi</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__initUi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">renderer</span><span class="p">()</span>
+        <span class="c1"># set FPS of SVG animation.
+</span>        <span class="n">r</span><span class="p">.</span><span class="n">setFramesPerSecond</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span> 
+        <span class="n">ico_filename</span> <span class="o">=</span> <span class="s">'ico/rolling.svg'</span>
+        <span class="c1"># set SVG icon to QSvgWidget.
+</span>        <span class="n">r</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">ico_filename</span><span class="p">)</span> 
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">AnimatedSvgExample</span><span class="p">()</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">(</span><span class="n">app</span><span class="p">.</span><span class="n">exec_</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>Copy and run.</p>
+
+<p><img src="/assets/images/pyqt_how_to_show_animated_svg/1.png" alt="example" /></p>
+
+<p>There is <a href="https://github.com/yjg30737/pyqt-animated-svg-example.git">GitHub repository</a> i made as an example.</p>
+
+<p>Well, that’s it.</p>
+
+<p>But i gotta say this method is not perfect.</p>
+
+<p><b>The problem is PyQt or Python whatever only accept the animateTransform.</b></p>
+
+<p>So far i can’t find how to let them properly handle with other animate-related tag.</p>
+
+<p>So bottom line, this method(which is only method in Qt by the way) works to SVG icon which has animateTransform, not animate/animateMotion.</p>
+
+<p>I will find out how to solve that problem, definitely.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[So, here we are. The second English post.]]></summary></entry><entry><title type="html">How to show basic window in PyQt5</title><link href="http://localhost:4000/posts/pyqt-basic-window/" rel="alternate" type="text/html" title="How to show basic window in PyQt5" /><published>2022-06-10T00:00:00+09:00</published><updated>2022-06-10T00:00:00+09:00</updated><id>http://localhost:4000/posts/pyqt-basic-window</id><content type="html" xml:base="http://localhost:4000/posts/pyqt-basic-window/"><![CDATA[<p>Finally, first English post.</p>
 
 <p>I will teach you how to show basic window in PyQt5.</p>
 
@@ -324,58 +378,4 @@
   제가 이미지도 곁들이는 등 많은 노력을 기울였지만 두서있게 설명을 잘 못한 것도 있고, html 등 웹사이트 코딩에 약한편이라 제대로 설명을 못한게 한이 맺힙니다.. 아니 뭐 그정도는 아닐지도..<br />
   그래도 저도 배운게 어느 정도 있는 것 같고, 누군가한테 설명을 하는 능력(설명력)이 향상되었다는 느낌이 샘솟네요.<br /> 
   여러분들이 읽을 필요 없는 글이지만, 그냥 제가 적고 싶어서 적어봤습니다ㅎ</p>
-</div></p></p></div>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[깃배쉬 기본적인 명령어를 알려드리겠습니다. (사실상 첫 포스팅이네요.) 1. 우선 짚고 넘어가야할 용어 저장소(Repository): 줄여서 Repo라고 합니다. 프로젝트(프로그램 작업해놓은 것들)를 저장하는 곳입니다. 위 사진에 있는 pyqt-font-dialog, pyqt-dark.. 등등이 저장소입니다 브랜치(Branch): 브랜치는 프로젝트 작업장 같은 겁니다. 하나의 저장소는 여러 브랜치를 가질 수 있습니다. 브랜치는 하나 이상 꼭 있어야 됩니다! 그래야 작업을 할 수 있으니까요.]]></summary></entry><entry><title type="html">파이썬(Python) eval 함수 설명, 사용방법</title><link href="http://localhost:4000/posts/python-eval-usage/" rel="alternate" type="text/html" title="파이썬(Python) eval 함수 설명, 사용방법" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>http://localhost:4000/posts/python-eval-usage</id><content type="html" xml:base="http://localhost:4000/posts/python-eval-usage/"><![CDATA[<p>파이썬 eval 함수는 문자열 형식으로 된 코드(예: print(‘123’))를 입력으로 받아 동적으로 계산하여 출력해주는 함수입니다.</p>
-
-<p>사용예시</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">eval</span><span class="p">(</span><span class="s">"print('123')"</span><span class="p">)</span>
-<span class="nb">eval</span><span class="p">(</span><span class="s">'1+2+3'</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>더 자세한 설명은 <a href="https://docs.python.org/3/library/functions.html#eval">python documentation</a>에서 보실 수 있습니다만, 대개는 위와 같이 문자열 형식으로 된 메소드나 수식을 계산하는 데 쓰입니다.</p>
-
-<p>eval 함수가 유용한 것은 수식을 입력으로 받는 계산 메소드를 매우 쉽게 만들 수 있다는 점입니다.<br />
-아래는 제가 제작한 <a href="https://github.com/yjg30737/pymeg.git">랜덤 사칙연산 생성기(pymeg)</a>입니다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pymeg.expGenerator</span> <span class="kn">import</span> <span class="n">ExpGenerator</span>
-<span class="kn">from</span> <span class="nn">pymeg.expStruct</span> <span class="kn">import</span> <span class="n">ExpStruct</span>
-
-<span class="n">problem</span> <span class="o">=</span> <span class="n">ExpStruct</span><span class="p">()</span>
-<span class="n">ext</span> <span class="o">=</span> <span class="n">ExpGenerator</span><span class="p">.</span><span class="n">get_problem</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span> <span class="c1"># 문자열 형식의 랜덤 수식 생성하여 ext에 반환 
-</span><span class="k">print</span><span class="p">(</span><span class="s">'값: {0}, 타입: {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">ext</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">ext</span><span class="p">)))</span>
-<span class="n">result</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span> <span class="c1"># 문자열 형식의 수식을 동적으로 계산하여 숫자로 반환
-</span><span class="k">print</span><span class="p">(</span><span class="s">'값: {0}, 타입: {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">)))</span>
-</code></pre></div></div>
-
-<p>결과는 다음과 같습니다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>값: 5+8, 타입: &lt;class 'str'&gt; # 문자열(str) 형식의 랜덤 수식!
-값: 13, 타입: &lt;class 'int'&gt; # 동적으로 계산된 이후 숫자로 반환되었기 때문에 int!
-</code></pre></div></div>
-
-<p>마찬가지로 응용프로그램인 계산기에도 응용할 수 있습니다. 대부분의 응용프로그램은 사용자에게 문자열로 입력을 받습니다.</p>
-
-<p>python을 이용한 eval은 문자열을 수식으로 취급하여, 계산 이후 결과를 반환하기에 매우 편리합니다.</p>
-
-<p>아래 또한 제가 제작한 <a href="https://github.com/yjg30737/pyqt-dark-calculator.git">계산기(pyqt-dark-calculator)</a>입니다.</p>
-
-<p>※ UI 제작 패키지인 PyQt5로 작성되었습니다. py 파일이므로 PyQt5를 설치하셔야 합니다. exe파일처럼 그냥 실행되는 거 아닙니다..ㅜ</p>
-
-<p>예를 들어 사용자가 1+2+3을 입력합니다. 1+2+3은 문자열 형식으로 프로그램에게 주어집니다.</p>
-
-<p><img src="/assets/images/eval_example1.png" alt="example1" /></p>
-
-<p>그럼 eval(‘1+2+3’)하여 6을 반환하죠.</p>
-
-<p><img src="/assets/images/eval_example2.png" alt="example" /></p>
-
-<p>eval은 math와 같은 외장 함수도 마찬가지로 지원합니다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span> <span class="c1"># math와 같은 외장함수는 eval이든 아니든 꼭 import해줘야 합니다!
-</span>
-<span class="p">...</span>
-
-<span class="nb">eval</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s">'math.sqrt(float({0}))'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">last_n_regex</span><span class="p">))))</span> <span class="c1"># math.sqrt(float(..)) 제곱근 계산하는 함수입니다.
-</span></code></pre></div></div>
-
-<p>이렇듯 문자열을 수식으로 변환하는 것에 관련해서는 eval을 줄기차게 사용하는 것이 여러모로 편리합니다.</p>
-
-<p><small>두 번째 포스팅입니다. 약간 설명충스러운 느낌이 들 수도 있습니다.. 죄송합니다..</small></p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[파이썬 eval 함수는 문자열 형식으로 된 코드(예: print(‘123’))를 입력으로 받아 동적으로 계산하여 출력해주는 함수입니다.]]></summary></entry></feed>
+</div></p></p></div>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[깃배쉬 기본적인 명령어를 알려드리겠습니다. (사실상 첫 포스팅이네요.) 1. 우선 짚고 넘어가야할 용어 저장소(Repository): 줄여서 Repo라고 합니다. 프로젝트(프로그램 작업해놓은 것들)를 저장하는 곳입니다. 위 사진에 있는 pyqt-font-dialog, pyqt-dark.. 등등이 저장소입니다 브랜치(Branch): 브랜치는 프로젝트 작업장 같은 겁니다. 하나의 저장소는 여러 브랜치를 가질 수 있습니다. 브랜치는 하나 이상 꼭 있어야 됩니다! 그래야 작업을 할 수 있으니까요.]]></summary></entry></feed>

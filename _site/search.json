@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "How to show animated SVG icon in PyQt5",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/posts/pyqt-how-to-show-animated-svg/",
+      "date"     : "2022-06-14 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "How to show basic window in PyQt5",
       "category" : "",
       "tags"     : "",
