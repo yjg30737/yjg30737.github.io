@@ -57,7 +57,6 @@ At least he needs some friend to hang around with.
 How about QTextEdit?
 
 ```python
-# know the drill, right?
 from PyQt5.QtWidgets import QMainWindow, QLabel, QApplication, QVBoxLayout, QTextEdit, QWidget
 from PyQt5.QtCore import Qt
 

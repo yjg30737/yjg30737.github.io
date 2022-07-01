@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "How to save Wikipedia document to local text file with Python?",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/posts/python-how-to-get-wikipedia-text/",
+      "date"     : "2022-07-01 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "How to show animated SVG icon in PyQt5",
       "category" : "",
       "tags"     : "",

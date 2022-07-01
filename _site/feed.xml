@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-14T12:54:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">How to show animated SVG icon in PyQt5</title><link href="http://localhost:4000/posts/pyqt-how-to-show-animated-svg/" rel="alternate" type="text/html" title="How to show animated SVG icon in PyQt5" /><published>2022-06-14T00:00:00+09:00</published><updated>2022-06-14T00:00:00+09:00</updated><id>http://localhost:4000/posts/pyqt-how-to-show-animated-svg</id><content type="html" xml:base="http://localhost:4000/posts/pyqt-how-to-show-animated-svg/"><![CDATA[<p>So, here we are. The second English post.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-01T12:01:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">How to save Wikipedia document to local text file with Python?</title><link href="http://localhost:4000/posts/python-how-to-get-wikipedia-text/" rel="alternate" type="text/html" title="How to save Wikipedia document to local text file with Python?" /><published>2022-07-01T00:00:00+09:00</published><updated>2022-07-01T00:00:00+09:00</updated><id>http://localhost:4000/posts/python-how-to-get-wikipedia-text</id><content type="html" xml:base="http://localhost:4000/posts/python-how-to-get-wikipedia-text/"><![CDATA[<p>Python is a programming language used in many fields such as web crawling.</p>
+
+<p>Getting the Wikipedia document’s content is also simple in Python.</p>
+
+<p>All you need is the <a href="https://pypi.org/project/bs4/">bs4</a>, <a href="https://pypi.org/project/urllib3/">urllib3</a> and <a href="https://pypi.org/project/certifi/">certifi</a> packages.</p>
+
+<p><strong>bs4</strong> is dummy package of <a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup4</a>. beautifulsoup4 is a library that makes it easy to scrape information from web pages. This package is often used for web crawling.</p>
+
+<p><strong>urllib3</strong> is used for HTTP request. You need “request” if you want to scrape information from web page, and this will handle it.</p>
+
+<p><strong>certifi</strong> is used for validating the trustworthiness of SSL certificate while verifying the identity of TLS hosts. Simply put, you can’t be trusted if you won’t install this.</p>
+
+<p>If the above 3 packages do not exist, you must install them. Here’s how to install it:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python <span class="nt">-m</span> pip <span class="nb">install </span>certifi
+
+python <span class="nt">-m</span> pip <span class="nb">install </span>urllib3
+
+python <span class="nt">-m</span> pip <span class="nb">install </span>bs4
+</code></pre></div></div>
+
+<p>Write the following code.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">certifi</span>
+<span class="kn">import</span> <span class="nn">urllib3</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">re</span><span class="p">,</span> <span class="n">os</span>
+
+<span class="k">def</span> <span class="nf">convertWikiToText</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="c1"># check if it is Wikipedia based URL
+</span>    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s">'\.wikipedia\.org'</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span> 
+    <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+        <span class="n">http</span> <span class="o">=</span> <span class="n">urllib3</span><span class="p">.</span><span class="n">PoolManager</span><span class="p">(</span><span class="n">ca_certs</span><span class="o">=</span><span class="n">certifi</span><span class="p">.</span><span class="n">where</span><span class="p">())</span>
+        <span class="c1"># request and get the response info
+</span>        <span class="n">resp</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">'GET'</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="c1"># decode the response data to make it look better
+</span>        <span class="n">resp_data</span> <span class="o">=</span> <span class="n">resp</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+        <span class="c1"># if success (200 means success, 404 means error as you know)
+</span>        <span class="k">if</span> <span class="n">resp</span><span class="p">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp_data</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s">'lxml'</span><span class="p">)</span>
+            <span class="c1"># get the title of document.
+</span>            <span class="n">title</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'title'</span><span class="p">).</span><span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' - '</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># Tag that has bodyContent as an id contains all the contents in the document, so find the info of the tag.
+</span>            <span class="n">content_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">'bodyContent'</span><span class="p">)</span>
+            <span class="c1"># get the text of it.
+</span>            <span class="n">content</span> <span class="o">=</span> <span class="n">content_tag</span><span class="p">.</span><span class="n">text</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">title</span> <span class="o">+</span> <span class="s">'.txt'</span>
+            <span class="c1"># create the text file
+</span>            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span>
+            <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+            <span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="c1"># start the file right away
+</span>            <span class="n">os</span><span class="p">.</span><span class="n">startfile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">'This is not the right URL'</span><span class="p">)</span>
+
+<span class="n">convertWikiToText</span><span class="p">(</span><span class="s">'https://en.m.wikipedia.org/wiki/Chocolatey'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>You will get the wikipedia document as a text file.</p>
+
+<p><img src="/assets/images/python_how_to_get_wikipedia_text/1.png" alt="example" /></p>
+
+<p>If you see more about this, check my GitHub repo “<a href="https://github.com/yjg30737/wiki-offline.git">wiki-offline</a>”.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[Python is a programming language used in many fields such as web crawling.]]></summary></entry><entry><title type="html">How to show animated SVG icon in PyQt5</title><link href="http://localhost:4000/posts/pyqt-how-to-show-animated-svg/" rel="alternate" type="text/html" title="How to show animated SVG icon in PyQt5" /><published>2022-06-14T00:00:00+09:00</published><updated>2022-06-14T00:00:00+09:00</updated><id>http://localhost:4000/posts/pyqt-how-to-show-animated-svg</id><content type="html" xml:base="http://localhost:4000/posts/pyqt-how-to-show-animated-svg/"><![CDATA[<p>So, here we are. The second English post.</p>
 
 <p>How to show animated SVG icon? Quite simple.</p>
 
@@ -101,8 +164,7 @@
 
 <p>How about QTextEdit?</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># know the drill, right?
-</span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span> <span class="n">QWidget</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span> <span class="n">QWidget</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span>
 
 
@@ -189,7 +251,21 @@
 
 <p>그렇게 해보니까 다시 됩니다 ㅎㅎ 물론 사라졌던 .idea 폴더도 다시 생기고요.</p>
 
-<p>※ .idea 폴더는 프로젝트 이름, 디렉토리 이름 등 정보를 포함한 xml 파일들이 있는 폴더입니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[파이참을 사용하다가 가끔씩 난관에 부딪칠 때가 많은데요.]]></summary></entry><entry><title type="html">CPU 잡아먹는 CompatTelRunner.exe이 하는 일과 비활성화하는 방법</title><link href="http://localhost:4000/posts/what-is-compattelrunners/" rel="alternate" type="text/html" title="CPU 잡아먹는 CompatTelRunner.exe이 하는 일과 비활성화하는 방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/what-is-compattelrunners</id><content type="html" xml:base="http://localhost:4000/posts/what-is-compattelrunners/"><![CDATA[<p>컴퓨터를 하다가 아무것도 안하고 있는데, 갑자기 CPU 돌아가는 소리가 크게 들립니다.</p>
+<p>※ .idea 폴더는 프로젝트 이름, 디렉토리 이름 등 정보를 포함한 xml 파일들이 있는 폴더입니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[파이참을 사용하다가 가끔씩 난관에 부딪칠 때가 많은데요.]]></summary></entry><entry><title type="html">파이참(PyCharm)에서 디렉토리 이름변경 시 java.io.ioexception 오류 해결방법</title><link href="http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm/" rel="alternate" type="text/html" title="파이참(PyCharm)에서 디렉토리 이름변경 시 java.io.ioexception 오류 해결방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm</id><content type="html" xml:base="http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm/"><![CDATA[<p>파이참에서 디렉토리 이름변경 기능을 사용할 시 java.io.ioexception이 뜰 때가 있죠.</p>
+
+<p>그럴때는 디렉토리에 있는 파일이 현재 사용중이거나 하는 경우입니다.</p>
+
+<p>윈도우에서 폴더 지울때 “폴더 내 파일이 현재 사용중이기 때문에 지울 수 없습니다.” 하는 경우가 있죠. 그것과 비슷한 경우입니다.</p>
+
+<p>관련 파일을 모두 종료하시고 다시 시도하시면 될 것입니다.</p>
+
+<p>그래도 안된다면? 직접 디렉토리 이름을 탐색기에서 바꾸시면 됩니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[파이참에서 디렉토리 이름변경 기능을 사용할 시 java.io.ioexception이 뜰 때가 있죠.]]></summary></entry><entry><title type="html">jekyll에서 특수기호 raw string으로 인식시키는 방법</title><link href="http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post/" rel="alternate" type="text/html" title="jekyll에서 특수기호 raw string으로 인식시키는 방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post</id><content type="html" xml:base="http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post/"><![CDATA[<p>깃헙 페이지 포스트 내용 중 코드를 쓸 시, 중괄호나 밑줄 두개 같이 jekyll에서 특수기호로 취급되는 낱말은 제대로 입력이 되지 않습니다. 그럴 때는 다음과 같이 하시면 됩니다!</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;% raw %&gt;
+(...)
+&lt;% endraw %&gt;
+</code></pre></div></div>
+
+<p>(…) 안에 코드를 넣으시면 됩니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[깃헙 페이지 포스트 내용 중 코드를 쓸 시, 중괄호나 밑줄 두개 같이 jekyll에서 특수기호로 취급되는 낱말은 제대로 입력이 되지 않습니다. 그럴 때는 다음과 같이 하시면 됩니다! &lt;% raw %&gt; (...) &lt;% endraw %&gt;]]></summary></entry><entry><title type="html">CPU 잡아먹는 CompatTelRunner.exe이 하는 일과 비활성화하는 방법</title><link href="http://localhost:4000/posts/what-is-compattelrunners/" rel="alternate" type="text/html" title="CPU 잡아먹는 CompatTelRunner.exe이 하는 일과 비활성화하는 방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/what-is-compattelrunners</id><content type="html" xml:base="http://localhost:4000/posts/what-is-compattelrunners/"><![CDATA[<p>컴퓨터를 하다가 아무것도 안하고 있는데, 갑자기 CPU 돌아가는 소리가 크게 들립니다.</p>
 
 <p>작업 관리자 열어보시면 그 이유가 다 나옵니다만, 윈도우를 os로 사용하시는 분들은 작업 관리자 목록을 CPU 자원 사용량 순으로 정렬할 때 CompatTelRunner.exe를 최상단에서 보신 경우가 꽤 있으실 겁니다.</p>
 
@@ -220,21 +296,7 @@
 <p><img src="http://localhost:4000/assets/images/compat_service.png" /></p>
 <h4>4. 재부팅</h4>
 
-<p>이렇게 하면 되는 걸로 알고 있습니다. 안되면.. ㅜ</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[컴퓨터를 하다가 아무것도 안하고 있는데, 갑자기 CPU 돌아가는 소리가 크게 들립니다.]]></summary></entry><entry><title type="html">jekyll에서 특수기호 raw string으로 인식시키는 방법</title><link href="http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post/" rel="alternate" type="text/html" title="jekyll에서 특수기호 raw string으로 인식시키는 방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post</id><content type="html" xml:base="http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post/"><![CDATA[<p>깃헙 페이지 포스트 내용 중 코드를 쓸 시, 중괄호나 밑줄 두개 같이 jekyll에서 특수기호로 취급되는 낱말은 제대로 입력이 되지 않습니다. 그럴 때는 다음과 같이 하시면 됩니다!</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;% raw %&gt;
-(...)
-&lt;% endraw %&gt;
-</code></pre></div></div>
-
-<p>(…) 안에 코드를 넣으시면 됩니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[깃헙 페이지 포스트 내용 중 코드를 쓸 시, 중괄호나 밑줄 두개 같이 jekyll에서 특수기호로 취급되는 낱말은 제대로 입력이 되지 않습니다. 그럴 때는 다음과 같이 하시면 됩니다! &lt;% raw %&gt; (...) &lt;% endraw %&gt;]]></summary></entry><entry><title type="html">파이참(PyCharm)에서 디렉토리 이름변경 시 java.io.ioexception 오류 해결방법</title><link href="http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm/" rel="alternate" type="text/html" title="파이참(PyCharm)에서 디렉토리 이름변경 시 java.io.ioexception 오류 해결방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm</id><content type="html" xml:base="http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm/"><![CDATA[<p>파이참에서 디렉토리 이름변경 기능을 사용할 시 java.io.ioexception이 뜰 때가 있죠.</p>
-
-<p>그럴때는 디렉토리에 있는 파일이 현재 사용중이거나 하는 경우입니다.</p>
-
-<p>윈도우에서 폴더 지울때 “폴더 내 파일이 현재 사용중이기 때문에 지울 수 없습니다.” 하는 경우가 있죠. 그것과 비슷한 경우입니다.</p>
-
-<p>관련 파일을 모두 종료하시고 다시 시도하시면 될 것입니다.</p>
-
-<p>그래도 안된다면? 직접 디렉토리 이름을 탐색기에서 바꾸시면 됩니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[파이참에서 디렉토리 이름변경 기능을 사용할 시 java.io.ioexception이 뜰 때가 있죠.]]></summary></entry><entry><title type="html">파이썬(Python)에서 메인 모듈 경로에 따른 상대경로 설정하는 방법</title><link href="http://localhost:4000/posts/pyqt5-how-to-set-relative-path-considering-main-module/" rel="alternate" type="text/html" title="파이썬(Python)에서 메인 모듈 경로에 따른 상대경로 설정하는 방법" /><published>2021-11-29T00:00:00+09:00</published><updated>2021-11-29T00:00:00+09:00</updated><id>http://localhost:4000/posts/pyqt5-how-to-set-relative-path-considering-main-module</id><content type="html" xml:base="http://localhost:4000/posts/pyqt5-how-to-set-relative-path-considering-main-module/"><![CDATA[<p>이럴 때가 있죠. 메인 모듈에서 특정 경로에 있는 외부 모듈을 부를 때, 그 외부 모듈에서 필요한 css 파일 따위를 못 찾아서 <b>FileNotFoundError</b>를 내뱉는 경우 말입니다.</p>
+<p>이렇게 하면 되는 걸로 알고 있습니다. 안되면.. ㅜ</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[컴퓨터를 하다가 아무것도 안하고 있는데, 갑자기 CPU 돌아가는 소리가 크게 들립니다.]]></summary></entry><entry><title type="html">파이썬(Python)에서 메인 모듈 경로에 따른 상대경로 설정하는 방법</title><link href="http://localhost:4000/posts/pyqt5-how-to-set-relative-path-considering-main-module/" rel="alternate" type="text/html" title="파이썬(Python)에서 메인 모듈 경로에 따른 상대경로 설정하는 방법" /><published>2021-11-29T00:00:00+09:00</published><updated>2021-11-29T00:00:00+09:00</updated><id>http://localhost:4000/posts/pyqt5-how-to-set-relative-path-considering-main-module</id><content type="html" xml:base="http://localhost:4000/posts/pyqt5-how-to-set-relative-path-considering-main-module/"><![CDATA[<p>이럴 때가 있죠. 메인 모듈에서 특정 경로에 있는 외부 모듈을 부를 때, 그 외부 모듈에서 필요한 css 파일 따위를 못 찾아서 <b>FileNotFoundError</b>를 내뱉는 경우 말입니다.</p>
 
 <p>이렇게 되는 이유는 메인 모듈을 중심으로 그 파일의 위치를 탐색하기 때문입니다.
 외부 모듈을 중심으로 탐색하는 것이 아니라요.</p>
@@ -291,91 +353,4 @@
 
 <p>※ ‘{{‘와 같이 중괄호를 2개 넣은 이유는, format 함수가 중괄호를 ‘{‘ 문자로 해석하도록 만들기 위해서입니다. (그거 파악하느라 약간 시간 소모했네요)</p>
 
-<p>이걸 사용자 입력을 받아 배경화면 이미지 변경하고 싶은 pyqt5 소프트웨어에 붙여넣어서 filename을 사용자 입력 받는 변수로 설정해두면 될 것 같습니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[파이큐티(PyQt5)에서 윈도우 배경화면 설정하기.. 참 어렵습니다. 윈도우 배경화면 설정하듯이 할 수 없는 것이 현실이죠.]]></summary></entry><entry><title type="html">깃배쉬에서 사용하는 기본적인 명령어(git init, git pull..) 설명</title><link href="http://localhost:4000/posts/basic-commands-of-github-bash/" rel="alternate" type="text/html" title="깃배쉬에서 사용하는 기본적인 명령어(git init, git pull..) 설명" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>http://localhost:4000/posts/basic-commands-of-github-bash</id><content type="html" xml:base="http://localhost:4000/posts/basic-commands-of-github-bash/"><![CDATA[<p>깃배쉬 기본적인 명령어를 알려드리겠습니다. (사실상 첫 포스팅이네요.)<br /></p>
-<div>
-  <h2>1. 우선 짚고 넘어가야할 용어</h2>
-    <p>
-    <b>저장소(Repository)</b>: 줄여서 Repo라고 합니다. 프로젝트(프로그램 작업해놓은 것들)를 저장하는 곳입니다.
-    </p>
-    <p><img src="http://localhost:4000/assets/images/repo.png" /></p>
-    <p>위 사진에 있는 pyqt-font-dialog, pyqt-dark.. 등등이 저장소입니다</p>
-    <p>
-    <b>브랜치(Branch)</b>: 브랜치는 프로젝트 작업장 같은 겁니다. 하나의 저장소는 여러 브랜치를 가질 수 있습니다. 브랜치는 하나 이상 꼭 있어야 됩니다! 그래야 작업을 할 수 있으니까요.
-    </p>
-</div>
-
-<div>
-  <h2>2. 명령어 쓰는 곳</h2>
-  <b>GitHub Bash</b>입니다.<br /> 리눅스의 셸 중에 배쉬가 있고, 윈도우의 cmd(명령 프롬프트)도 셸의 일종이죠. 깃헙도 그 셸이 있는데 그게 바로 GitHub Bash입니다. 구글에서 검색하시면 곧바로 다운가능합니다.<br /><br />
-</div>
-
-<div>
-  <h2>3. 기본적인 명령어</h2>
-  <p>우선 원하는 폴더에 가셔서 깃 배쉬를 켭니다. 오른쪽 클릭하면 컨텍스트 메뉴에 Git Bash Here이 있을텐데 그거 누르면 깃 배쉬가 나올 것입니다. 아니면 cd 명령어(현재 참조하는 폴더 바꾸는 명령어. cd C:/.. 처럼 사용함)로 가셔도 되고요.</p>
-  <p><b>git config --global user.name "이름"</b> // 님 이름 영어로 적으시면 됩니다.</p>
-  <p><b>git config --global user.email "깃허브 이메일"</b> // 님이 깃허브에 가입했을 때 입력한 이메일을 여기서 입력하세요.</p>
-  <p><small>※ 위 두 명령어는 깃헙배쉬 다운받고 나서 처음 사용할때만 쓰고 그 뒤엔 할 필요 없습니다. 대신에 처음엔 꼭 하셔야 합니다. 안그러면 님 이메일 뭔지 계속 물어봅니다.</small></p>
-
-  <p><b>git init</b> // 깃 명령어 사용가능한 폴더로 만듭니다. 이 명령 입력하고 나면 .git이라는 숨겨진 폴더가 생깁니다. (숨김 파일/폴더 볼 수 있게 탐색기 설정하면 보입니다.)<br />
-  .git 폴더는 깃 저장소를 나타내는 표식이라고 보면 됩니다.</p>
-  <p><small>※ git init 명령만 입력하면 master 브랜치가 디폴트로 생깁니다. git init abs123을 입력하면 abc123이라는 폴더가 생기고 그 안에 저장소가 생깁니다.</small></p>
-
-  <p><b>git pull</b> // 원격 저장소의 파일들을 내 저장소에 가지고 옵니다.<br /> 원격저장소가 있다면 꼭 하셔야 됩니다.<br />
-  님이 혼자 쓰시는 거라고 하더라도, 작업할때는 git pull 먼저 부르는게 좋은 습관입니다.</p>
-
-  <p>그런데 처음부터 다짜고짜 git pull 입력하면 "There is no tracking information for the current branch... 이런 메시지를 뱉어내면서 파일 안 가져와줄거라고 말합니다. 그래서 먼저 어느 원격저장소에서 갖고와야 되는지를 정한 뒤에 이놈한테 좀 갖고 와달라고 말해야겠죠.<br />다음 두 명령어를 입력하면 됩니다.
-  
-  <p><b>git remote add origin https://github.com/username/reponame.git</b> // 뒤에 https...는 외부저장소 url입니다. 외부저장소와 로컬 저장소를 연결합니다. origin은 외부 저장소를 일컫는 말입니다.<br />
-  (외부 저장소의 실제 이름이 아니라, git에서 관용적으로 사용하는 말입니다.)<br />
-  <b>git pull origin master</b> // origin(외부저장소)에서 master(로컬 저장소의 브랜치)로 파일을 갖고 옵니다. 이 명령어를 입력하면, 실제로 그곳에 있는 파일들이 로컬 저장소 폴더에 추가됩니다.</p>
-
-  <p>이후에 pull할 땐 git remote~는 입력할 필요가 없습니다. 하지만 git pull origin master는 계속해서 입력해야되는데요. <br /><b>git branch --set-upstream-to=origin/master master</b>를 입력하면 git pull만 입력해도 됩니다.<br />--set-upstream-to=origin..는 origin을 파일을 받아오는 upstream(상류)로 간주하겠다는 것입니다.</p>
-
-  <p><b>touch abc.txt</b> // abc.txt라는 파일을 추가합니다. 리눅스 하시는 분들은 touch 명령어가 익숙하실겁니다. (근데 이런 명령어 아니라도 그냥 다른데서 파일 갖고와도 됩니다.)</p>
-
-  <p><b>git status</b> // 지금 저장소 상태를 보는 겁니다. 정확히는 브랜치를 보는거죠.
-  출력은 대략 다음과 같이 나옵니다. 해석해드리자면요.
-
-  
-<figure class="highlight"><pre><code class="language-git" data-lang="git">  On branch main // 지금 사용자가 사용하는 브랜치 이름: main
-  Your branch is up to date with 'origin/main'. // 
-  님 브랜치가 원격저장소(origin/main)랑 같은 최신버전이라는 뜻입니다. 
-  즉 파일 목록이 같다는 거죠.
-  여기서 origin은 원격저장소를 일컫는 이름이고 main은 그 브랜치 이름입니다.
-
-  Untracked files:
-    (use "git add &lt;file&gt;..." to include in what will be committed)
-          "_posts/2021..(생략)
-
-  nothing added to commit but untracked files present (use "git add" to track)
-
-  // Untracked files...는 아직 로컬 저장소가 인식을 못하는 파일이 있다는 겁니다. 
-  파일을 추가해줘도 저장소가 인식을 자동으로 안해주거든요. 
-  USB나 이어폰 노트북에 꽃을때 일일이 연결하겠냐고 물어보는 거랑 비슷한 거죠. 
-  우리가 "git add" 명령어로 인식시켜줘야 합니다. 
-  (use "git add" to track 메시지 보이시죠)
-  </code></pre></figure>
-
-
-  <p><b>git add .</b> // 로컬 저장소한테 제가 추가한 파일들 인식하라는 명령어입니다. add 다음의 .는 루트폴더(저장소 최상위폴더)를 말합니다.<br />
-  루트폴더부터 추가된 모든 파일들 인식하라는 거니 전부 다 인식하라는 것이죠.</p>
-
-  <p><b>git commit -m "First commit"</b> // 커밋하기(내 저장소에 변경여부 저장) -m "abc"는 커밋메시지를 "First commit"으로 하겠다는 겁니다. 커밋메시지는 위키의 수정코멘트랑 같은 건데 "내가 파일을 어떠어떠하게 변경했다"라고 사람들에게 알려주는 겁니다.</p>
-
-  <p><img src="http://localhost:4000/assets/images/commit_message.png" /></p>
-  
-  <p>위는 깃헙 사이트에서 볼 수 있는 저장소 파일 목록입니다. yjg30737(제 아이디) 옆에 있는 <cite>Replace example.png</cite>는 가장 최근 커밋메시지고 파일 목록이랑 2 days ago(2일전에 커밋) 사이에 있는 것들도 마찬가지로 커밋메시지입니다.</p>
-
-  <p><b>git push</b> // 원격 저장소에도 저장(반영)</p>
-  <p>이것도 바로는 안될텐데 아까 pull 때처럼 <b>git push origin master</b> 하시면 됩니다. --set-upstream하셨으면 이것도 git push만 해도 됩니다.</p>
-
-  <p><b>rm -rf .git</b> // 로컬 깃 저장소 삭제 명령어입니다. 물론 탐색기에서 직접 지우셔도 됩니다. 혹시나 깃헙 배쉬 연습하시다가 이상하게 되어버려서 다시 해야겠다고 생각하신다면? 삭제하시면 됩니다.</p>
-
-
-<div>
-  <h2>5. 첫번째 포스트..</h2>
-  <p>힘드네요. 일단 그거 얘기하고 싶었고 또..<br />
-  제가 이미지도 곁들이는 등 많은 노력을 기울였지만 두서있게 설명을 잘 못한 것도 있고, html 등 웹사이트 코딩에 약한편이라 제대로 설명을 못한게 한이 맺힙니다.. 아니 뭐 그정도는 아닐지도..<br />
-  그래도 저도 배운게 어느 정도 있는 것 같고, 누군가한테 설명을 하는 능력(설명력)이 향상되었다는 느낌이 샘솟네요.<br /> 
-  여러분들이 읽을 필요 없는 글이지만, 그냥 제가 적고 싶어서 적어봤습니다ㅎ</p>
-</div></p></p></div>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[깃배쉬 기본적인 명령어를 알려드리겠습니다. (사실상 첫 포스팅이네요.) 1. 우선 짚고 넘어가야할 용어 저장소(Repository): 줄여서 Repo라고 합니다. 프로젝트(프로그램 작업해놓은 것들)를 저장하는 곳입니다. 위 사진에 있는 pyqt-font-dialog, pyqt-dark.. 등등이 저장소입니다 브랜치(Branch): 브랜치는 프로젝트 작업장 같은 겁니다. 하나의 저장소는 여러 브랜치를 가질 수 있습니다. 브랜치는 하나 이상 꼭 있어야 됩니다! 그래야 작업을 할 수 있으니까요.]]></summary></entry></feed>
+<p>이걸 사용자 입력을 받아 배경화면 이미지 변경하고 싶은 pyqt5 소프트웨어에 붙여넣어서 filename을 사용자 입력 받는 변수로 설정해두면 될 것 같습니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[파이큐티(PyQt5)에서 윈도우 배경화면 설정하기.. 참 어렵습니다. 윈도우 배경화면 설정하듯이 할 수 없는 것이 현실이죠.]]></summary></entry></feed>
