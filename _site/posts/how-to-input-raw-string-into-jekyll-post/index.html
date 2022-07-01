@@ -361,6 +361,10 @@
     `;
   }
 
+  const emptyTemplate = function(hit) {
+    return `<p class="pt-3 ps-3">No result</p>`;
+  }
+
   search.addWidget(
     instantsearch.widgets.searchBox({
       container: '#search-searchbar',
@@ -377,6 +381,7 @@
       container: '#search-hits',
       templates: {
         item: hitTemplate,
+        empty: emptyTemplate
       },
     })
   );
