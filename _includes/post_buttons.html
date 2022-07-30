@@ -1,0 +1,13 @@
+<div class="post-header-btns m-3">
+    <a class="btn btn-primary" href="{{ site.url }}/posts" role="button">List</a>
+    {% if page.previous.url %}
+        <a class="btn btn-primary" href="{{ page.previous.url }}" role="button">Previous</a>
+    {% else %}
+        <a class="btn btn-primary disabled" role="button">Previous</a>
+    {% endif %}
+    {% if page.next.url %}
+        <a class="btn btn-primary" href="{{ page.next.url }}" role="button">Next</a>
+    {% else %}
+        <a class="btn btn-primary disabled" role="button">Next</a>
+    {% endif %}
+</div>
