@@ -1,7 +1,21 @@
 ---
 layout: default
 ---
-<div class="container-fluid pt-4 px-4">
+<div class="post-header-btns m-3">
+    <a class="btn btn-primary" href="{{ site.url }}/posts" role="button">Posts</a>
+    {% if page.previous.url %}
+        <a class="btn btn-primary" href="{{ page.previous.url }}" role="button">Previous</a>
+    {% else %}
+        <a class="btn btn-primary disabled" role="button">Previous</a>
+    {% endif %}
+    {% if page.next.url %}
+        <a class="btn btn-primary" href="{{ page.next.url }}" role="button">Next</a>
+    {% else %}
+        <a class="btn btn-primary disabled" role="button">Next</a>
+    {% endif %}
+</div>
+<hr>
+<div class="container-fluid px-4">
     <!-- post header -->
     {% include post_header.html %}
     <div>
