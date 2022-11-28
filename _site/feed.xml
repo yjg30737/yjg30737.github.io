@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-03T16:47:24+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">How to solve CMake error in Flutter</title><link href="http://localhost:4000/posts/how-to-solve-cmake-error-flutter/" rel="alternate" type="text/html" title="How to solve CMake error in Flutter" /><published>2022-07-03T00:00:00+09:00</published><updated>2022-07-03T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-solve-cmake-error-flutter</id><content type="html" xml:base="http://localhost:4000/posts/how-to-solve-cmake-error-flutter/"><![CDATA[<p>Error message generated after Visual Studio upgrade:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-28T19:37:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">Electron exe 파일 초간단 설치법</title><link href="http://localhost:4000/posts/how-to-install-electron/" rel="alternate" type="text/html" title="Electron exe 파일 초간단 설치법" /><published>2022-11-28T00:00:00+09:00</published><updated>2022-11-28T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-install-electron</id><content type="html" xml:base="http://localhost:4000/posts/how-to-install-electron/"><![CDATA[<p>거두절미하고 설명합니다.</p>
+
+<p>빌드를 원하는 폴더 터미널 내에서 다음 명령어들을 실행합니다.</p>
+
+<ol>
+  <li>
+    <p>npm init –yes
+아주 간단한 package.json 파일 하나를 만듭니다.</p>
+  </li>
+  <li>
+    <p>npm install -g electron-builder
+electron-builder를 글로벌 형태로 설치합니다. 글로벌 형태로 작성할 시 어디서든 사용할 수 있습니다.</p>
+  </li>
+  <li>
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electron ."</span><span class="p">,</span><span class="w">
+</span><span class="nl">"build:osx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electron-builder --mac"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"build:linux"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run build:linux32 &amp;&amp; npm run build:linux64"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"build:linux32"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electron-builder --linux --ia32"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"build:linux64"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electron-builder --linux --x64"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"build:win"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run build:win32 &amp;&amp; npm run build:win64"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"build:win32"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electron-builder --win portable --ia32"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"build:win64"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electron-builder --win portable --x64"</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>package.json에 위 내용을 붙여넣습니다. 기존에 있던 scripts는 제거하시면 됩니다.
+위에 나열된 스크립트 명령어들은 각 운영체제에 맞게 일렉트론 파일을 빌드하도록 해줍니다.</p>
+
+<ol>
+  <li>
+    <p>npm i electron –save-dev
+일렉트론을 개발자 의존성으로 설치합니다. 이렇게 하지 않으면 일렉트론 깔라고 나옵니다.</p>
+  </li>
+  <li>
+    <p>main.js나 index.js를 생성합니다. 이 스크립트가 메인 스크립트가 됩니다. package.json에 “main” 속성의 값을 main.js나 index.js로 변경합니다.</p>
+  </li>
+  <li>
+    <p>메인 스크립트는 비어 있습니다. 따라서 다음과 같이 추가해볼까요? 그냥 복붙하시면 됩니다 :)</p>
+  </li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">BrowserWindow</span><span class="p">,</span> <span class="nx">shell</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">electron</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="kd">const</span> <span class="nx">createWindow</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">win</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BrowserWindow</span><span class="p">({</span>
+    <span class="na">width</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span> <span class="c1">// 가로</span>
+    <span class="na">height</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span> <span class="c1">// 세로</span>
+    <span class="na">autoHideMenuBar</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// 메뉴바 일단 숨김!!</span>
+  <span class="p">})</span>
+
+<span class="c1">// 링크 클릭할시 프로그램 안에서 열리는데</span>
+<span class="c1">// 브라우저에서 열려야겠죠.. 기본이라고 생각되어서 여기 놓습니다 !!</span>
+  <span class="nx">win</span><span class="p">.</span><span class="nx">webContents</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">new-window</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="nx">shell</span><span class="p">.</span><span class="nx">openExternal</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="c1">// 님이 적는 url이 exe 파일이 됩니다~~ 아래는 제블로그 URL 입니다.</span>
+  <span class="nx">win</span><span class="p">.</span><span class="nx">loadURL</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://yjg30737.github.io/</span><span class="dl">'</span><span class="p">)</span> 
+  
+
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">whenReady</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">createWindow</span><span class="p">()</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>안채워주시면 빌드할때 오류납니다😅</p>
+
+<ol>
+  <li>빌드 전 테스트는 필수입니다, 따라서</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm start
+</code></pre></div></div>
+<p>를 입력해줍니다 :)</p>
+
+<ol>
+  <li>이제 빌드해줍니다. 윈도 64비트라고 가정합니다.</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run build:win64
+</code></pre></div></div>
+
+<p>쫌 오래 걸릴겁니다. 아닐수도 있고요..?</p>
+
+<ol>
+  <li>dist 폴더 안에 win-unpacked 폴더 들어가시면 exe 파일 하나가 보일겁니다.</li>
+</ol>
+
+<p><img src="/assets/images/2022-11-28/a.png" alt="example" /></p>
+
+<p>윈도 “기본” 타이틀명은 package.json의 name 값 그대로입니다.</p>
+
+<p>수고수고 👌</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[거두절미하고 설명합니다.]]></summary></entry><entry><title type="html">How to solve CMake error in Flutter</title><link href="http://localhost:4000/posts/how-to-solve-cmake-error-flutter/" rel="alternate" type="text/html" title="How to solve CMake error in Flutter" /><published>2022-07-03T00:00:00+09:00</published><updated>2022-07-03T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-solve-cmake-error-flutter</id><content type="html" xml:base="http://localhost:4000/posts/how-to-solve-cmake-error-flutter/"><![CDATA[<p>Error message generated after Visual Studio upgrade:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CMake Error: Error: generator : Visual Studio 17 2022
 Does not match the generator used previously: Visual Studio 16 2019
@@ -267,13 +365,7 @@ python <span class="nt">-m</span> pip <span class="nb">install </span>bs4
 
 <p>그렇게 해보니까 다시 됩니다 ㅎㅎ 물론 사라졌던 .idea 폴더도 다시 생기고요.</p>
 
-<p>※ .idea 폴더는 프로젝트 이름, 디렉토리 이름 등 정보를 포함한 xml 파일들이 있는 폴더입니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[파이참을 사용하다가 가끔씩 난관에 부딪칠 때가 많은데요.]]></summary></entry><entry><title type="html">jekyll에서 특수기호 raw string으로 인식시키는 방법</title><link href="http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post/" rel="alternate" type="text/html" title="jekyll에서 특수기호 raw string으로 인식시키는 방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post</id><content type="html" xml:base="http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post/"><![CDATA[<p>깃헙 페이지 포스트 내용 중 코드를 쓸 시, 중괄호나 밑줄 두개 같이 jekyll에서 특수기호로 취급되는 낱말은 제대로 입력이 되지 않습니다. 그럴 때는 다음과 같이 하시면 됩니다!</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;% raw %&gt;
-(...)
-&lt;% endraw %&gt;
-</code></pre></div></div>
-
-<p>(…) 안에 코드를 넣으시면 됩니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[깃헙 페이지 포스트 내용 중 코드를 쓸 시, 중괄호나 밑줄 두개 같이 jekyll에서 특수기호로 취급되는 낱말은 제대로 입력이 되지 않습니다. 그럴 때는 다음과 같이 하시면 됩니다! &lt;% raw %&gt; (...) &lt;% endraw %&gt;]]></summary></entry><entry><title type="html">CPU 잡아먹는 CompatTelRunner.exe이 하는 일과 비활성화하는 방법</title><link href="http://localhost:4000/posts/what-is-compattelrunners/" rel="alternate" type="text/html" title="CPU 잡아먹는 CompatTelRunner.exe이 하는 일과 비활성화하는 방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/what-is-compattelrunners</id><content type="html" xml:base="http://localhost:4000/posts/what-is-compattelrunners/"><![CDATA[<p>컴퓨터를 하다가 아무것도 안하고 있는데, 갑자기 CPU 돌아가는 소리가 크게 들립니다.</p>
+<p>※ .idea 폴더는 프로젝트 이름, 디렉토리 이름 등 정보를 포함한 xml 파일들이 있는 폴더입니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[파이참을 사용하다가 가끔씩 난관에 부딪칠 때가 많은데요.]]></summary></entry><entry><title type="html">CPU 잡아먹는 CompatTelRunner.exe이 하는 일과 비활성화하는 방법</title><link href="http://localhost:4000/posts/what-is-compattelrunners/" rel="alternate" type="text/html" title="CPU 잡아먹는 CompatTelRunner.exe이 하는 일과 비활성화하는 방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/what-is-compattelrunners</id><content type="html" xml:base="http://localhost:4000/posts/what-is-compattelrunners/"><![CDATA[<p>컴퓨터를 하다가 아무것도 안하고 있는데, 갑자기 CPU 돌아가는 소리가 크게 들립니다.</p>
 
 <p>작업 관리자 열어보시면 그 이유가 다 나옵니다만, 윈도우를 os로 사용하시는 분들은 작업 관리자 목록을 CPU 자원 사용량 순으로 정렬할 때 CompatTelRunner.exe를 최상단에서 보신 경우가 꽤 있으실 겁니다.</p>
 
@@ -304,7 +396,13 @@ python <span class="nt">-m</span> pip <span class="nb">install </span>bs4
 <p><img src="http://localhost:4000/assets/images/compat_service.png" /></p>
 <h4>4. 재부팅</h4>
 
-<p>이렇게 하면 되는 걸로 알고 있습니다. 안되면.. ㅜ</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[컴퓨터를 하다가 아무것도 안하고 있는데, 갑자기 CPU 돌아가는 소리가 크게 들립니다.]]></summary></entry><entry><title type="html">파이참(PyCharm)에서 디렉토리 이름변경 시 java.io.ioexception 오류 해결방법</title><link href="http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm/" rel="alternate" type="text/html" title="파이참(PyCharm)에서 디렉토리 이름변경 시 java.io.ioexception 오류 해결방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm</id><content type="html" xml:base="http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm/"><![CDATA[<p>파이참에서 디렉토리 이름변경 기능을 사용할 시 java.io.ioexception이 뜰 때가 있죠.</p>
+<p>이렇게 하면 되는 걸로 알고 있습니다. 안되면.. ㅜ</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[컴퓨터를 하다가 아무것도 안하고 있는데, 갑자기 CPU 돌아가는 소리가 크게 들립니다.]]></summary></entry><entry><title type="html">jekyll에서 특수기호 raw string으로 인식시키는 방법</title><link href="http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post/" rel="alternate" type="text/html" title="jekyll에서 특수기호 raw string으로 인식시키는 방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post</id><content type="html" xml:base="http://localhost:4000/posts/how-to-input-raw-string-into-jekyll-post/"><![CDATA[<p>깃헙 페이지 포스트 내용 중 코드를 쓸 시, 중괄호나 밑줄 두개 같이 jekyll에서 특수기호로 취급되는 낱말은 제대로 입력이 되지 않습니다. 그럴 때는 다음과 같이 하시면 됩니다!</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;% raw %&gt;
+(...)
+&lt;% endraw %&gt;
+</code></pre></div></div>
+
+<p>(…) 안에 코드를 넣으시면 됩니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[깃헙 페이지 포스트 내용 중 코드를 쓸 시, 중괄호나 밑줄 두개 같이 jekyll에서 특수기호로 취급되는 낱말은 제대로 입력이 되지 않습니다. 그럴 때는 다음과 같이 하시면 됩니다! &lt;% raw %&gt; (...) &lt;% endraw %&gt;]]></summary></entry><entry><title type="html">파이참(PyCharm)에서 디렉토리 이름변경 시 java.io.ioexception 오류 해결방법</title><link href="http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm/" rel="alternate" type="text/html" title="파이참(PyCharm)에서 디렉토리 이름변경 시 java.io.ioexception 오류 해결방법" /><published>2021-11-30T00:00:00+09:00</published><updated>2021-11-30T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm</id><content type="html" xml:base="http://localhost:4000/posts/how-to-fix-java-io-ioexception-in-pycharm/"><![CDATA[<p>파이참에서 디렉토리 이름변경 기능을 사용할 시 java.io.ioexception이 뜰 때가 있죠.</p>
 
 <p>그럴때는 디렉토리에 있는 파일이 현재 사용중이거나 하는 경우입니다.</p>
 
@@ -312,42 +410,4 @@ python <span class="nt">-m</span> pip <span class="nb">install </span>bs4
 
 <p>관련 파일을 모두 종료하시고 다시 시도하시면 될 것입니다.</p>
 
-<p>그래도 안된다면? 직접 디렉토리 이름을 탐색기에서 바꾸시면 됩니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[파이참에서 디렉토리 이름변경 기능을 사용할 시 java.io.ioexception이 뜰 때가 있죠.]]></summary></entry><entry><title type="html">파이썬(Python)에서 메인 모듈 경로에 따른 상대경로 설정하는 방법</title><link href="http://localhost:4000/posts/pyqt5-how-to-set-relative-path-considering-main-module/" rel="alternate" type="text/html" title="파이썬(Python)에서 메인 모듈 경로에 따른 상대경로 설정하는 방법" /><published>2021-11-29T00:00:00+09:00</published><updated>2021-11-29T00:00:00+09:00</updated><id>http://localhost:4000/posts/pyqt5-how-to-set-relative-path-considering-main-module</id><content type="html" xml:base="http://localhost:4000/posts/pyqt5-how-to-set-relative-path-considering-main-module/"><![CDATA[<p>이럴 때가 있죠. 메인 모듈에서 특정 경로에 있는 외부 모듈을 부를 때, 그 외부 모듈에서 필요한 css 파일 따위를 못 찾아서 <b>FileNotFoundError</b>를 내뱉는 경우 말입니다.</p>
-
-<p>이렇게 되는 이유는 메인 모듈을 중심으로 그 파일의 위치를 탐색하기 때문입니다.
-외부 모듈을 중심으로 탐색하는 것이 아니라요.</p>
-
-<p>이럴 때는 우리가 실행하는 메인 모듈의 경로와 외부 모듈의 파일 경로를 상대 경로로 연결시킬 필요가 있겠죠.</p>
-
-<p>그래야만 메인 모듈에서 외부 모듈의 css 파일 등을 로드할 수 있으니까요.
-우선 짚고 넘어가야 할 변수와 함수를 설명드리겠습니다.</p>
-
-<h4>1. __file__ 변수</h4>
-<p>이 변수는 말이죠. 이 변수가 포함된 모듈 파일(.py)의 경로를 담고 있는 변수입니다.</p>
-<h4>2. os.getcwd()</h4>
-<p>외장 모듈인 os의 함수인 getcwd입니다. getcwd는 메인 모듈이 포함되어 있는 디렉토리를 리턴합니다.</p>
-<h4>3. os.path.relpath(a, b)</h4>
-<p>os.path.relpath(a, b)는 b에 대한 a의 상대 경로를 리턴합니다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">tende</span>\<span class="n">anaconda3</span>\<span class="n">envs</span>\<span class="n">projectToTestTheRemoteGitHubPackageMadeByMe</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyqt_dark_calculator</span>\<span class="n">main</span><span class="p">.</span><span class="n">py</span>
-<span class="c1"># a
-</span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">tende</span>\<span class="n">PycharmProjects</span>\<span class="n">projectToTestTheRemoteGitHubPackageMadeByMe</span> 
-<span class="c1"># b
-</span><span class="p">..</span>\<span class="p">..</span>\<span class="n">anaconda3</span>\<span class="n">envs</span>\<span class="n">projectToTestTheRemoteGitHubPackageMadeByMe</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyqt_dark_calculator</span>\<span class="n">main</span><span class="p">.</span><span class="n">py</span>
-<span class="c1"># os.path.relpath(a, b)
-</span></code></pre></div></div>
-
-<p>이 방법을 다음과 같이 활용할 수 있습니다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">css_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">getcwd</span><span class="p">())),</span> <span class="sa">r</span><span class="s">'style\button.css'</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>위 코드는 제가 제작했던 <a href="https://github.com/yjg30737/pyqt-dark-calculator.git">계산기</a> 코드의 일부입니다. 이것을 깃으로 인스톨한 뒤 임포트하여 사용할 사람들을 위해 위와 같은 코드를 작성하였습니다.</p>
-
-<p>외부 모듈에서 필요로 하는 style\button.css를 메인 모듈에서 찾아서 로드할 수 있게 하려고 css_file_path(button.css 파일 경로)를 메인 모듈 기준으로 한 상대 경로로 만들었습니다.</p>
-
-<p>아 참, 위 코드에서 사용되었던 <b>os.path.dirname(filename)</b>은 파일을 인자로 그 파일의 폴더를 리턴해주는 함수입니다. 또 <b>os.path.join(a, b)</b> 함수는 a와 b 경로를 서로 연결시켜줍니다. a는 디렉토리여야 하고, b는 a의 하위에 위치한 파일이어야 합니다!</p>
-
-<p>특정 리소스 파일이 필요한 외부 모듈을 작성할 때 필요한 코드 같습니다. 다른 방법이 있는지 아직 모르겠지만, 일단 저는 저 방식으로 하니까 되더군요.</p>
-
-<p>딱히 뭐라고 포스팅을 끝내야할지 모르겠네요! 그럼!</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[이럴 때가 있죠. 메인 모듈에서 특정 경로에 있는 외부 모듈을 부를 때, 그 외부 모듈에서 필요한 css 파일 따위를 못 찾아서 FileNotFoundError를 내뱉는 경우 말입니다.]]></summary></entry></feed>
+<p>그래도 안된다면? 직접 디렉토리 이름을 탐색기에서 바꾸시면 됩니다.</p>]]></content><author><name>Jung Gyu Yoon</name></author><category term="posts" /><summary type="html"><![CDATA[파이참에서 디렉토리 이름변경 기능을 사용할 시 java.io.ioexception이 뜰 때가 있죠.]]></summary></entry></feed>
