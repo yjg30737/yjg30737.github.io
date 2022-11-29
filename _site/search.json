@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Algolia Indexing(인덱싱) 방법",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/posts/how-to-index-algolia/",
+      "date"     : "2022-11-29 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Electron exe 파일 초간단 설치법",
       "category" : "",
       "tags"     : "",
