@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-04T15:05:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">Algolia Indexing(인덱싱) 방법</title><link href="http://localhost:4000/posts/how-to-index-algolia/" rel="alternate" type="text/html" title="Algolia Indexing(인덱싱) 방법" /><published>2022-11-29T00:00:00+09:00</published><updated>2022-11-29T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-index-algolia</id><content type="html" xml:base="http://localhost:4000/posts/how-to-index-algolia/"><![CDATA[<p>사실상 개인메모입니다 ㅎ</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-16T14:43:38+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">YJG’s Think Tank</title><entry><title type="html">Algolia Indexing(인덱싱) 방법</title><link href="http://localhost:4000/posts/how-to-index-algolia/" rel="alternate" type="text/html" title="Algolia Indexing(인덱싱) 방법" /><published>2022-11-29T00:00:00+09:00</published><updated>2022-11-29T00:00:00+09:00</updated><id>http://localhost:4000/posts/how-to-index-algolia</id><content type="html" xml:base="http://localhost:4000/posts/how-to-index-algolia/"><![CDATA[<p>사실상 개인메모입니다 ㅎ</p>
 
 <p>대상 포스팅을 새로 검색창에서 띄우려면 늘~ 해야하는 것이 바로 인덱싱입니다.</p>
 
@@ -55,10 +55,10 @@ electron-builder를 글로벌 형태로 설치합니다. 글로벌 형태로 작
   </li>
 </ol>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">BrowserWindow</span><span class="p">,</span> <span class="nx">shell</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">electron</span><span class="dl">'</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">BrowserWindow</span><span class="p">,</span> <span class="nx">shell</span> <span class="p">}</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">electron</span><span class="dl">'</span><span class="p">)</span>
 
 <span class="kd">const</span> <span class="nx">createWindow</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">win</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BrowserWindow</span><span class="p">({</span>
+  <span class="kd">const</span> <span class="nx">win</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BrowserWindow</span><span class="p">({</span>
     <span class="na">width</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span> <span class="c1">// 가로</span>
     <span class="na">height</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span> <span class="c1">// 세로</span>
     <span class="na">autoHideMenuBar</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// 메뉴바 일단 숨김!!</span>
@@ -66,19 +66,19 @@ electron-builder를 글로벌 형태로 설치합니다. 글로벌 형태로 작
 
 <span class="c1">// 링크 클릭할시 프로그램 안에서 열리는데</span>
 <span class="c1">// 브라우저에서 열려야겠죠.. 기본이라고 생각되어서 여기 놓습니다 !!</span>
-  <span class="nx">win</span><span class="p">.</span><span class="nx">webContents</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">new-window</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-    <span class="nx">shell</span><span class="p">.</span><span class="nx">openExternal</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+  <span class="nx">win</span><span class="p">.</span><span class="nx">webContents</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">new-window</span><span class="dl">'</span><span class="p">,</span> <span class="nf">function </span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nf">preventDefault</span><span class="p">();</span>
+    <span class="nx">shell</span><span class="p">.</span><span class="nf">openExternal</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
   <span class="p">});</span>
 
 <span class="c1">// 님이 적는 url이 exe 파일이 됩니다~~ 아래는 제블로그 URL 입니다.</span>
-  <span class="nx">win</span><span class="p">.</span><span class="nx">loadURL</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://yjg30737.github.io/</span><span class="dl">'</span><span class="p">)</span> 
+  <span class="nx">win</span><span class="p">.</span><span class="nf">loadURL</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://yjg30737.github.io/</span><span class="dl">'</span><span class="p">)</span> 
   
 
 <span class="p">}</span>
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">whenReady</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">createWindow</span><span class="p">()</span>
+<span class="nx">app</span><span class="p">.</span><span class="nf">whenReady</span><span class="p">().</span><span class="nf">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nf">createWindow</span><span class="p">()</span>
 <span class="p">})</span>
 </code></pre></div></div>
 
@@ -148,40 +148,40 @@ python <span class="nt">-m</span> pip <span class="nb">install </span>bs4
 
 <p>Write the following code.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">certifi</span>
-<span class="kn">import</span> <span class="nn">urllib3</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">re</span><span class="p">,</span> <span class="n">os</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">certifi</span>
+<span class="kn">import</span> <span class="n">urllib3</span>
+<span class="kn">from</span> <span class="n">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="n">re</span><span class="p">,</span> <span class="n">os</span>
 
 <span class="k">def</span> <span class="nf">convertWikiToText</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
     <span class="c1"># check if it is Wikipedia based URL
-</span>    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s">'\.wikipedia\.org'</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span> 
+</span>    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="sa">r</span><span class="sh">'</span><span class="s">\.wikipedia\.org</span><span class="sh">'</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span> 
     <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
-        <span class="n">http</span> <span class="o">=</span> <span class="n">urllib3</span><span class="p">.</span><span class="n">PoolManager</span><span class="p">(</span><span class="n">ca_certs</span><span class="o">=</span><span class="n">certifi</span><span class="p">.</span><span class="n">where</span><span class="p">())</span>
+        <span class="n">http</span> <span class="o">=</span> <span class="n">urllib3</span><span class="p">.</span><span class="nc">PoolManager</span><span class="p">(</span><span class="n">ca_certs</span><span class="o">=</span><span class="n">certifi</span><span class="p">.</span><span class="nf">where</span><span class="p">())</span>
         <span class="c1"># request and get the response info
-</span>        <span class="n">resp</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">'GET'</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+</span>        <span class="n">resp</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="sh">'</span><span class="s">GET</span><span class="sh">'</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="c1"># decode the response data to make it look better
-</span>        <span class="n">resp_data</span> <span class="o">=</span> <span class="n">resp</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+</span>        <span class="n">resp_data</span> <span class="o">=</span> <span class="n">resp</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span>
         <span class="c1"># if success (200 means success, 404 means error as you know)
 </span>        <span class="k">if</span> <span class="n">resp</span><span class="p">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp_data</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s">'lxml'</span><span class="p">)</span>
+            <span class="n">soup</span> <span class="o">=</span> <span class="nc">BeautifulSoup</span><span class="p">(</span><span class="n">resp_data</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="sh">'</span><span class="s">lxml</span><span class="sh">'</span><span class="p">)</span>
             <span class="c1"># get the title of document.
-</span>            <span class="n">title</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'title'</span><span class="p">).</span><span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' - '</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span>            <span class="n">title</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="sh">'</span><span class="s">title</span><span class="sh">'</span><span class="p">).</span><span class="n">text</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sh">'</span><span class="s"> - </span><span class="sh">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
             <span class="c1"># Tag that has bodyContent as an id contains all the contents in the document, so find the info of the tag.
-</span>            <span class="n">content_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">'bodyContent'</span><span class="p">)</span>
+</span>            <span class="n">content_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="sh">'</span><span class="s">bodyContent</span><span class="sh">'</span><span class="p">)</span>
             <span class="c1"># get the text of it.
 </span>            <span class="n">content</span> <span class="o">=</span> <span class="n">content_tag</span><span class="p">.</span><span class="n">text</span>
-            <span class="n">filename</span> <span class="o">=</span> <span class="n">title</span> <span class="o">+</span> <span class="s">'.txt'</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">title</span> <span class="o">+</span> <span class="sh">'</span><span class="s">.txt</span><span class="sh">'</span>
             <span class="c1"># create the text file
-</span>            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span>
-            <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-            <span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</span>            <span class="n">f</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span>
+            <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+            <span class="n">f</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
             <span class="c1"># start the file right away
-</span>            <span class="n">os</span><span class="p">.</span><span class="n">startfile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</span>            <span class="n">os</span><span class="p">.</span><span class="nf">startfile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">'This is not the right URL'</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="nc">Exception</span><span class="p">(</span><span class="sh">'</span><span class="s">This is not the right URL</span><span class="sh">'</span><span class="p">)</span>
 
-<span class="n">convertWikiToText</span><span class="p">(</span><span class="s">'https://en.m.wikipedia.org/wiki/Chocolatey'</span><span class="p">)</span>
+<span class="nf">convertWikiToText</span><span class="p">(</span><span class="sh">'</span><span class="s">https://en.m.wikipedia.org/wiki/Chocolatey</span><span class="sh">'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>You will get the wikipedia document as a text file.</p>
@@ -198,32 +198,32 @@ python <span class="nt">-m</span> pip <span class="nb">install </span>bs4
 
 <p>Then make the Python script like below.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">sys</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5.QtSvg</span> <span class="kn">import</span> <span class="n">QSvgWidget</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+<span class="kn">from</span> <span class="n">PyQt5.QtSvg</span> <span class="kn">import</span> <span class="n">QSvgWidget</span>
+<span class="kn">from</span> <span class="n">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
 
 
 <span class="c1"># QSvgWidget is good to use when you want to make SVG-related widget.
 </span><span class="k">class</span> <span class="nc">AnimatedSvgExample</span><span class="p">(</span><span class="n">QSvgWidget</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">__initUi</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">__initUi</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">__initUi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">renderer</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">__initUi</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">renderer</span><span class="p">()</span>
         <span class="c1"># set FPS of SVG animation.
-</span>        <span class="n">r</span><span class="p">.</span><span class="n">setFramesPerSecond</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span> 
-        <span class="n">ico_filename</span> <span class="o">=</span> <span class="s">'ico/rolling.svg'</span>
+</span>        <span class="n">r</span><span class="p">.</span><span class="nf">setFramesPerSecond</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span> 
+        <span class="n">ico_filename</span> <span class="o">=</span> <span class="sh">'</span><span class="s">ico/rolling.svg</span><span class="sh">'</span>
         <span class="c1"># set SVG icon to QSvgWidget.
-</span>        <span class="n">r</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">ico_filename</span><span class="p">)</span> 
+</span>        <span class="n">r</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">ico_filename</span><span class="p">)</span> 
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">AnimatedSvgExample</span><span class="p">()</span>
-    <span class="n">r</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">(</span><span class="n">app</span><span class="p">.</span><span class="n">exec_</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="nc">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nc">AnimatedSvgExample</span><span class="p">()</span>
+    <span class="n">r</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="p">.</span><span class="nf">exit</span><span class="p">(</span><span class="n">app</span><span class="p">.</span><span class="nf">exec_</span><span class="p">())</span>
 </code></pre></div></div>
 
 <p>Copy and run.</p>
@@ -248,26 +248,26 @@ python <span class="nt">-m</span> pip <span class="nb">install </span>bs4
 
 <p>This is very basic post as well.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> <span class="n">QApplication</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> <span class="n">QApplication</span>
 
 
 <span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">__initUi</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">__initUi</span><span class="p">()</span>
         
-    <span class="k">def</span> <span class="nf">__initUi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">lbl</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__initUi</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">lbl</span> <span class="o">=</span> <span class="nc">QLabel</span><span class="p">(</span><span class="sh">'</span><span class="s">Hello World!</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">setCentralWidget</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span>
         
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="n">sys</span>
 
-    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
-    <span class="n">w</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="n">app</span><span class="p">.</span><span class="n">exec_</span><span class="p">()</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="nc">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="nc">MainWindow</span><span class="p">()</span>
+    <span class="n">w</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">exec_</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p><img src="/assets/images/pyqt_basic_window/1.png" alt="example" /></p>
@@ -276,10 +276,10 @@ python <span class="nt">-m</span> pip <span class="nb">install </span>bs4
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># know the drill, right?
 </span><span class="o">//</span><span class="p">..</span>
-    <span class="k">def</span> <span class="nf">__initUi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">lbl</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>
-        <span class="n">lbl</span><span class="p">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="p">.</span><span class="n">AlignCenter</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__initUi</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">lbl</span> <span class="o">=</span> <span class="nc">QLabel</span><span class="p">(</span><span class="sh">'</span><span class="s">Hello World!</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">lbl</span><span class="p">.</span><span class="nf">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="p">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">setCentralWidget</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span>
 <span class="o">//</span><span class="p">..</span>
 </code></pre></div></div>
 
@@ -291,36 +291,36 @@ python <span class="nt">-m</span> pip <span class="nb">install </span>bs4
 
 <p>How about QTextEdit?</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span> <span class="n">QWidget</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span> <span class="n">QWidget</span>
+<span class="kn">from</span> <span class="n">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span>
 
 
 <span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">__initUi</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">__initUi</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">__initUi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">lbl</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s">'Hello Text Editor!'</span><span class="p">)</span>
-        <span class="n">lbl</span><span class="p">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="p">.</span><span class="n">AlignCenter</span><span class="p">)</span>
-        <span class="n">te</span> <span class="o">=</span> <span class="n">QTextEdit</span><span class="p">()</span> <span class="c1"># new friend here!
+    <span class="k">def</span> <span class="nf">__initUi</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">lbl</span> <span class="o">=</span> <span class="nc">QLabel</span><span class="p">(</span><span class="sh">'</span><span class="s">Hello Text Editor!</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">lbl</span><span class="p">.</span><span class="nf">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="p">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+        <span class="n">te</span> <span class="o">=</span> <span class="nc">QTextEdit</span><span class="p">()</span> <span class="c1"># new friend here!
 </span>
-        <span class="n">lay</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span> <span class="c1"># layout (layout is needed for 2 or more widgets)
-</span>        <span class="n">lay</span><span class="p">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span>
-        <span class="n">lay</span><span class="p">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">te</span><span class="p">)</span>
+        <span class="n">lay</span> <span class="o">=</span> <span class="nc">QVBoxLayout</span><span class="p">()</span> <span class="c1"># layout (layout is needed for 2 or more widgets)
+</span>        <span class="n">lay</span><span class="p">.</span><span class="nf">addWidget</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span>
+        <span class="n">lay</span><span class="p">.</span><span class="nf">addWidget</span><span class="p">(</span><span class="n">te</span><span class="p">)</span>
 
-        <span class="n">mainWidget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span> <span class="c1"># we need widget to contain the layout
-</span>        <span class="n">mainWidget</span><span class="p">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">lay</span><span class="p">)</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">mainWidget</span><span class="p">)</span>
+        <span class="n">mainWidget</span> <span class="o">=</span> <span class="nc">QWidget</span><span class="p">()</span> <span class="c1"># we need widget to contain the layout
+</span>        <span class="n">mainWidget</span><span class="p">.</span><span class="nf">setLayout</span><span class="p">(</span><span class="n">lay</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">setCentralWidget</span><span class="p">(</span><span class="n">mainWidget</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="n">sys</span>
 
-    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
-    <span class="n">w</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="n">app</span><span class="p">.</span><span class="n">exec_</span><span class="p">()</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="nc">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="nc">MainWindow</span><span class="p">()</span>
+    <span class="n">w</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">exec_</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p><img src="/assets/images/pyqt_basic_window/3.png" alt="example" /></p>

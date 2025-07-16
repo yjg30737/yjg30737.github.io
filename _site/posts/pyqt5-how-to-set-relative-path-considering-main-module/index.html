@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>파이썬(Python)에서 메인 모듈 경로에 따른 상대경로 설정하는 방법 | YJG’s Think Tank</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="파이썬(Python)에서 메인 모듈 경로에 따른 상대경로 설정하는 방법" />
 <meta name="author" content="Jung Gyu Yoon" />
 <meta property="og:locale" content="en_US" />
@@ -68,7 +68,7 @@
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="YJG&apos;s Think Tank" />
 
 <!-- style -->
-<link rel="stylesheet" href="/assets/css/theme.css">
+<link rel="stylesheet" href="/assets/css/theme.scss">
 
 <!-- google-site-verification -->
 <meta name="google-site-verification" content="O9BfJ9jXSKbZP--kw9ItuDV5MjmWAUtjb8z6UaDhGDg" />
@@ -526,7 +526,7 @@
 
 <p>이 방법을 다음과 같이 활용할 수 있습니다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">css_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">getcwd</span><span class="p">())),</span> <span class="sa">r</span><span class="s">'style\button.css'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">css_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">relpath</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="nf">getcwd</span><span class="p">())),</span> <span class="sa">r</span><span class="sh">'</span><span class="s">style\button.css</span><span class="sh">'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>위 코드는 제가 제작했던 <a href="https://github.com/yjg30737/pyqt-dark-calculator.git">계산기</a> 코드의 일부입니다. 이것을 깃으로 인스톨한 뒤 임포트하여 사용할 사람들을 위해 위와 같은 코드를 작성하였습니다.</p>

@@ -1,6 +1,3 @@
----
-layout: none
----
 $(document).ready(function() {
 	// Reduce FOUC(flash of unstyled content) effect
 	$("body").css('opacity', 1);

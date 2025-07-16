@@ -68,10 +68,10 @@
 <loc>http://localhost:4000/about/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/posts/</loc>
+<loc>http://localhost:4000/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/</loc>
+<loc>http://localhost:4000/posts/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/posts/page2/</loc>
