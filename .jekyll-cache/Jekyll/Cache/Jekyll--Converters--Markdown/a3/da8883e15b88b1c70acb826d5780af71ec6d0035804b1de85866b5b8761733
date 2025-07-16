@@ -1,16 +1,16 @@
-I"2<p>숫자를 사용자에게 보여주는 프로그램에서는 수치를 확연하게 보여주기 위해 중간중간에 쉼표를 붙이죠.</p>
+I"p<p>숫자를 사용자에게 보여주는 프로그램에서는 수치를 확연하게 보여주기 위해 중간중간에 쉼표를 붙이죠.</p>
 
 <p>또한 소수점 아래에는 쉼표를 붙이지 않습니다. 그렇기에 소수점이 있을 때와 없을 때를 구분하여 코드를 짜야 하겠죠.</p>
 
 <p>코드 예시</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">text</span> <span class="o">=</span> <span class="s">'1234567890.9876543210'</span> <span class="c1"># 여기서 초기값은 문자열입니다!
-</span>    <span class="k">if</span> <span class="n">text</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'.'</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="c1"># 소수점 없을 때
-</span>        <span class="n">text</span> <span class="o">=</span> <span class="s">'{:,}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">text</span> <span class="o">=</span> <span class="sh">'</span><span class="s">1234567890.9876543210</span><span class="sh">'</span> <span class="c1"># 여기서 초기값은 문자열입니다!
+</span>    <span class="k">if</span> <span class="n">text</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="sh">'</span><span class="s">.</span><span class="sh">'</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="c1"># 소수점 없을 때
+</span>        <span class="n">text</span> <span class="o">=</span> <span class="sh">'</span><span class="s">{:,}</span><span class="sh">'</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">pre_dot</span><span class="p">,</span> <span class="n">post_dot</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">'.'</span><span class="p">)</span> <span class="c1"># 소수점 있을 때. 소수점 기준으로 앞과 뒤를 나눕니다. 
-</span>        <span class="n">text</span> <span class="o">=</span> <span class="s">'{:,}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pre_dot</span><span class="p">))</span> <span class="o">+</span> <span class="s">'.'</span> <span class="o">+</span> <span class="n">post_dot</span> 
+        <span class="n">pre_dot</span><span class="p">,</span> <span class="n">post_dot</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sh">'</span><span class="s">.</span><span class="sh">'</span><span class="p">)</span> <span class="c1"># 소수점 있을 때. 소수점 기준으로 앞과 뒤를 나눕니다. 
+</span>        <span class="n">text</span> <span class="o">=</span> <span class="sh">'</span><span class="s">{:,}</span><span class="sh">'</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">pre_dot</span><span class="p">))</span> <span class="o">+</span> <span class="sh">'</span><span class="s">.</span><span class="sh">'</span> <span class="o">+</span> <span class="n">post_dot</span> 
 
-    <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> 
+    <span class="nf">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> 
 </code></pre></div></div>
 
 <p>결과값</p>
@@ -21,8 +21,8 @@
 
 <p>짧은 코드 예시</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">num</span> <span class="o">=</span> <span class="mf">1234567890.9876543210</span> <span class="c1"># 여기서 초기값은 문자열이 아니라 정수(int)입니다.
-</span><span class="n">num</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">num</span><span class="p">:,</span><span class="si">}</span><span class="s">"</span>
-<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</span><span class="n">num</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">num</span><span class="si">:</span><span class="p">,</span><span class="si">}</span><span class="sh">"</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>결과값</p>

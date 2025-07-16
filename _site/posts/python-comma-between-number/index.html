@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>파이썬(Python)에서 숫자 사이에 콤마(1,234,567…) 넣기 | YJG’s Think Tank</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="파이썬(Python)에서 숫자 사이에 콤마(1,234,567…) 넣기" />
 <meta name="author" content="Jung Gyu Yoon" />
 <meta property="og:locale" content="en_US" />
@@ -68,7 +68,7 @@
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="YJG&apos;s Think Tank" />
 
 <!-- style -->
-<link rel="stylesheet" href="/assets/css/theme.css">
+<link rel="stylesheet" href="/assets/css/theme.scss">
 
 <!-- google-site-verification -->
 <meta name="google-site-verification" content="O9BfJ9jXSKbZP--kw9ItuDV5MjmWAUtjb8z6UaDhGDg" />
@@ -504,14 +504,14 @@
 <p>또한 소수점 아래에는 쉼표를 붙이지 않습니다. 그렇기에 소수점이 있을 때와 없을 때를 구분하여 코드를 짜야 하겠죠.</p>
 
 <p>코드 예시</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">text</span> <span class="o">=</span> <span class="s">'1234567890.9876543210'</span> <span class="c1"># 여기서 초기값은 문자열입니다!
-</span>    <span class="k">if</span> <span class="n">text</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'.'</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="c1"># 소수점 없을 때
-</span>        <span class="n">text</span> <span class="o">=</span> <span class="s">'{:,}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">text</span> <span class="o">=</span> <span class="sh">'</span><span class="s">1234567890.9876543210</span><span class="sh">'</span> <span class="c1"># 여기서 초기값은 문자열입니다!
+</span>    <span class="k">if</span> <span class="n">text</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="sh">'</span><span class="s">.</span><span class="sh">'</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="c1"># 소수점 없을 때
+</span>        <span class="n">text</span> <span class="o">=</span> <span class="sh">'</span><span class="s">{:,}</span><span class="sh">'</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">pre_dot</span><span class="p">,</span> <span class="n">post_dot</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">'.'</span><span class="p">)</span> <span class="c1"># 소수점 있을 때. 소수점 기준으로 앞과 뒤를 나눕니다. 
-</span>        <span class="n">text</span> <span class="o">=</span> <span class="s">'{:,}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pre_dot</span><span class="p">))</span> <span class="o">+</span> <span class="s">'.'</span> <span class="o">+</span> <span class="n">post_dot</span> 
+        <span class="n">pre_dot</span><span class="p">,</span> <span class="n">post_dot</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sh">'</span><span class="s">.</span><span class="sh">'</span><span class="p">)</span> <span class="c1"># 소수점 있을 때. 소수점 기준으로 앞과 뒤를 나눕니다. 
+</span>        <span class="n">text</span> <span class="o">=</span> <span class="sh">'</span><span class="s">{:,}</span><span class="sh">'</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">pre_dot</span><span class="p">))</span> <span class="o">+</span> <span class="sh">'</span><span class="s">.</span><span class="sh">'</span> <span class="o">+</span> <span class="n">post_dot</span> 
 
-    <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> 
+    <span class="nf">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> 
 </code></pre></div></div>
 
 <p>결과값</p>
@@ -522,8 +522,8 @@
 
 <p>짧은 코드 예시</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">num</span> <span class="o">=</span> <span class="mf">1234567890.9876543210</span> <span class="c1"># 여기서 초기값은 문자열이 아니라 정수(int)입니다.
-</span><span class="n">num</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">num</span><span class="p">:,</span><span class="si">}</span><span class="s">"</span>
-<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</span><span class="n">num</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">num</span><span class="si">:</span><span class="p">,</span><span class="si">}</span><span class="sh">"</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>결과값</p>

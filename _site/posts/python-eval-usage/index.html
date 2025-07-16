@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>파이썬(Python) eval 함수 설명, 사용방법 | YJG’s Think Tank</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="파이썬(Python) eval 함수 설명, 사용방법" />
 <meta name="author" content="Jung Gyu Yoon" />
 <meta property="og:locale" content="en_US" />
@@ -68,7 +68,7 @@
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="YJG&apos;s Think Tank" />
 
 <!-- style -->
-<link rel="stylesheet" href="/assets/css/theme.css">
+<link rel="stylesheet" href="/assets/css/theme.scss">
 
 <!-- google-site-verification -->
 <meta name="google-site-verification" content="O9BfJ9jXSKbZP--kw9ItuDV5MjmWAUtjb8z6UaDhGDg" />
@@ -502,8 +502,8 @@
         <p>파이썬 eval 함수는 문자열 형식으로 된 코드(예: print(‘123’))를 입력으로 받아 동적으로 계산하여 출력해주는 함수입니다.</p>
 
 <p>사용예시</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">eval</span><span class="p">(</span><span class="s">"print('123')"</span><span class="p">)</span>
-<span class="nb">eval</span><span class="p">(</span><span class="s">'1+2+3'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">eval</span><span class="p">(</span><span class="sh">"</span><span class="s">print(</span><span class="sh">'</span><span class="s">123</span><span class="sh">'</span><span class="s">)</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">eval</span><span class="p">(</span><span class="sh">'</span><span class="s">1+2+3</span><span class="sh">'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>더 자세한 설명은 <a href="https://docs.python.org/3/library/functions.html#eval">python documentation</a>에서 보실 수 있습니다만, 대개는 위와 같이 문자열 형식으로 된 메소드나 수식을 계산하는 데 쓰입니다.</p>
@@ -511,14 +511,14 @@
 <p>eval 함수가 유용한 것은 수식을 입력으로 받는 계산 메소드를 매우 쉽게 만들 수 있다는 점입니다.<br />
 아래는 제가 제작한 <a href="https://github.com/yjg30737/pymeg.git">랜덤 사칙연산 생성기(pymeg)</a>입니다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pymeg.expGenerator</span> <span class="kn">import</span> <span class="n">ExpGenerator</span>
-<span class="kn">from</span> <span class="nn">pymeg.expStruct</span> <span class="kn">import</span> <span class="n">ExpStruct</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pymeg.expGenerator</span> <span class="kn">import</span> <span class="n">ExpGenerator</span>
+<span class="kn">from</span> <span class="n">pymeg.expStruct</span> <span class="kn">import</span> <span class="n">ExpStruct</span>
 
-<span class="n">problem</span> <span class="o">=</span> <span class="n">ExpStruct</span><span class="p">()</span>
-<span class="n">ext</span> <span class="o">=</span> <span class="n">ExpGenerator</span><span class="p">.</span><span class="n">get_problem</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span> <span class="c1"># 문자열 형식의 랜덤 수식 생성하여 ext에 반환 
-</span><span class="k">print</span><span class="p">(</span><span class="s">'값: {0}, 타입: {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">ext</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">ext</span><span class="p">)))</span>
-<span class="n">result</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span> <span class="c1"># 문자열 형식의 수식을 동적으로 계산하여 숫자로 반환
-</span><span class="k">print</span><span class="p">(</span><span class="s">'값: {0}, 타입: {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">)))</span>
+<span class="n">problem</span> <span class="o">=</span> <span class="nc">ExpStruct</span><span class="p">()</span>
+<span class="n">ext</span> <span class="o">=</span> <span class="n">ExpGenerator</span><span class="p">.</span><span class="nf">get_problem</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span> <span class="c1"># 문자열 형식의 랜덤 수식 생성하여 ext에 반환 
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">값: {0}, 타입: {1}</span><span class="sh">'</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">ext</span><span class="p">,</span> <span class="nf">type</span><span class="p">(</span><span class="n">ext</span><span class="p">)))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nf">eval</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span> <span class="c1"># 문자열 형식의 수식을 동적으로 계산하여 숫자로 반환
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">값: {0}, 타입: {1}</span><span class="sh">'</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nf">type</span><span class="p">(</span><span class="n">result</span><span class="p">)))</span>
 </code></pre></div></div>
 
 <p>결과는 다음과 같습니다.</p>
@@ -544,11 +544,11 @@
 
 <p>eval은 math와 같은 외장 함수도 마찬가지로 지원합니다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span> <span class="c1"># math와 같은 외장함수는 eval이든 아니든 꼭 import해줘야 합니다!
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">math</span> <span class="c1"># math와 같은 외장함수는 eval이든 아니든 꼭 import해줘야 합니다!
 </span>
-<span class="p">...</span>
+<span class="bp">...</span>
 
-<span class="nb">eval</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s">'math.sqrt(float({0}))'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">last_n_regex</span><span class="p">))))</span> <span class="c1"># math.sqrt(float(..)) 제곱근 계산하는 함수입니다.
+<span class="nf">eval</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="sh">'</span><span class="s">math.sqrt(float({0}))</span><span class="sh">'</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">last_n_regex</span><span class="p">))))</span> <span class="c1"># math.sqrt(float(..)) 제곱근 계산하는 함수입니다.
 </span></code></pre></div></div>
 
 <p>이렇듯 문자열을 수식으로 변환하는 것에 관련해서는 eval을 줄기차게 사용하는 것이 여러모로 편리합니다.</p>

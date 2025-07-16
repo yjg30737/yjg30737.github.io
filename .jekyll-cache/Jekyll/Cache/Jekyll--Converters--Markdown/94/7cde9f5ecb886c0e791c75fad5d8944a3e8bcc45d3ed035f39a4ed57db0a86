@@ -1,4 +1,4 @@
-I"(<p>파이큐티(PyQt5)에서 윈도우 배경화면 설정하기.. 참 어렵습니다. 윈도우 배경화면 설정하듯이 할 수 없는 것이 현실이죠.</p>
+I"�<p>파이큐티(PyQt5)에서 윈도우 배경화면 설정하기.. 참 어렵습니다. 윈도우 배경화면 설정하듯이 할 수 없는 것이 현실이죠.</p>
 
 <p>Qt Designer 같은 경우도 qrc 파일인지 뭔지도 만들어야 되고.. 심히 직관적이지 못한 것이 현실입니다. (적어도 제가 아는 부분까지는요)</p>
 
@@ -7,8 +7,8 @@
 <p>윈도우(여기서는 QMainWindow)에 특정 파일 이미지를 배경화면으로 설정하는 코드는 다음과 같습니다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="n">filename</span> <span class="o">=</span> <span class="s">'abc.png'</span> <span class="c1"># abc.png는 파일명입니다!
-</span><span class="bp">self</span><span class="p">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s">"QMainWindow {{ background-image: url('{0}'); }}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span> 
+<span class="n">filename</span> <span class="o">=</span> <span class="sh">'</span><span class="s">abc.png</span><span class="sh">'</span> <span class="c1"># abc.png는 파일명입니다!
+</span><span class="n">self</span><span class="p">.</span><span class="nf">setStyleSheet</span><span class="p">(</span><span class="sh">"</span><span class="s">QMainWindow {{ background-image: url(</span><span class="sh">'</span><span class="s">{0}</span><span class="sh">'</span><span class="s">); }}</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span> 
 <span class="c1"># 위 라인을 컴파일러는 
 # self.setStyleSheet("QMainWindow { background-image: url('abc.png'); })
 # 로 해석합니다."
